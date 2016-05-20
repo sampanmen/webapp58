@@ -1,9 +1,17 @@
 <?php
 require_once '../functions/connection.inc.php';
 
-function addTeaching($term,$year,$startDate,$endDate) {
+/**
+ * 
+ * @param type $term -> tinyint
+ * @param type $year -> int
+ * @param type $startDate -> date format 'yyyy-mm-dd'
+ * @param type $endDate -> date format 'yyyy-mm-dd'
+ * @return false or lastInserID 
+ */
+function addTerm($term,$year,$startDate,$endDate) {
     $conn = dbconnect();
-    $SQLCommand = "INSERT INTO `term`(`idTerm`, `term`, `year`, `startDate`, `endDate`) "
+    $SQLCommand = "INSERT INTO `term`(`idTerm`, `term`, `yearTerm`, `startDateTerm`, `endDateTerm`) "
             . "VALUES (NULL,:term,:year,:startDate,:endDate)";
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -16,6 +24,37 @@ function addTeaching($term,$year,$startDate,$endDate) {
     );
     if ($SQLPrepare->rowCount() > 0) {
         return $idTerm = $conn->lastInsertId();
+    } else {
+        return false;
+    }
+}
+
+function deleteTerm($idTerm) {
+    $conn = dbconnect();
+    $SQLCommand = "DELETE FROM `term` WHERE `idTerm` =:idTerm";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idTerm" => $idTerm
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idTerm;
+    } else {
+        return false;
+    }
+}
+
+function getAllTerm() {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT * FROM `term`";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute();
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
+        return $result;
     } else {
         return false;
     }
