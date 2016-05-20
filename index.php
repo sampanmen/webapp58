@@ -12,7 +12,7 @@
                 <div class="container">
                     <h1>ยินดีต้อนรับ</h1>
                     <h2>โรงเรียนอนุบาลหมีน้อย</h2>
-                    <form class="form" method="POST" action="/control/control.login.php">
+                    <form class="form" method="POST" action="control/control.login.php">
                         <input name="username" type="text" placeholder="Username">
                         <input name="password" type="password" placeholder="Password">
                         <button type="submit" id="login-button">เข้าสู่ระบบ</button>
