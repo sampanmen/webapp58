@@ -16,6 +16,7 @@
                                     <tr>
                                         <th class="text-center">No.</th>
                                         <th>ID Teacher</th>
+                                        <th>Title Name</th>
                                         <th>Name</th>
                                         <th>Surname</th>
                                         <th>Position</th>
@@ -27,6 +28,7 @@
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td>000001</td>
+                                         <td>Miss</td>
                                         <td>Nutchanart</td>
                                         <td>Sattayakawee</td>
                                         <td>Teacher</td>

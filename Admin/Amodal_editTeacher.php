@@ -15,6 +15,14 @@
                         <p>00001</p>
                     </div>
                 </div>
+                <div class="col-lg-12">  
+                    <div class="col-lg-6">                                           
+                        <label>Title Name</label>
+                    </div>
+                    <div class="form-group col-lg-6"> 
+                        <p>นางสาว</p> 
+                    </div>
+                </div>
 
                 <div class="col-lg-12">  
                     <div class="col-lg-6">                                           

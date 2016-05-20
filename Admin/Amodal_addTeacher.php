@@ -16,6 +16,14 @@
                         <input class="form-control" name="idteacher"> 
                     </div>
                 </div>
+                <div class="col-lg-12">  
+                    <div class="col-lg-6">                                           
+                        <label>Title Name</label>
+                    </div>
+                    <div class="form-group col-lg-6"> 
+                        <input class="form-control" type="text" name="titlename"> 
+                    </div>
+                </div>
 
                 <div class="col-lg-12">  
                     <div class="col-lg-6">                                           
