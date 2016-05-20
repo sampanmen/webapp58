@@ -30,13 +30,18 @@
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <!--                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>-->
-                    <a class="navbar-brand" href="index.html">Appoint School</a>
+                    <!--                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                                            <span class="sr-only">Toggle navigation</span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                        </button>-->
+                    <?php if ($_SESSION['permission'] == "admin") { ?>
+                        <a class="navbar-brand" href="ATerm.php">การนัดหมายคุณครู</a><?php } ?>
+                    <?php if ($_SESSION['permission'] == "student") { ?>
+                        <a class="navbar-brand" href="SallSubject.php">การนัดหมายคุณครู</a><?php } ?>
+                    <?php if ($_SESSION['permission'] == "teacher") { ?>
+                        <a class="navbar-brand" href="">การนัดหมายคุณครู</a><?php } ?>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
@@ -45,8 +50,6 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> ข้อมูลผู้ใช้</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> ตั้งค่า</a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="/webapp58/control/control.logout.php"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
@@ -60,85 +63,60 @@
                     <div class="navbar-default sidebar" role="navigation">
                         <div class="sidebar-nav navbar-collapse">
                             <ul class="nav" id="side-menu">
-                                <li class="sidebar-search">
-                                    <div class="input-group custom-search-form">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-
+                                <li>
+                                    <a href="ATerm.php"><i class="fa fa-book fa-fw"></i> ปีการศึกษา</a>
                                 </li>
                                 <li>
-                                    <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
+                                    <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> วิชา</a>
                                 </li>
                                 <li>
-                                    <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
+                                    <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> คุณครู</a>
                                 </li>
                                 <li>
-                                    <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
+                                    <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> นักเรียน</a>
                                 </li>
 
                             </ul>
                         </div>
                     </div>
-                <?php } 
-                if($_SESSION['permission'] == "student"){?>
-                <!--STUDENT-->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> Course Registration</a>
-                            </li>
-                            <li>
-                                <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> Summery Appoint</a>
-                            </li>
-                            <?php echo $_SESSION['permission']; ?>
-                        </ul>
+                    <?php
+                }
+                if ($_SESSION['permission'] == "student") {
+                    ?>
+                    <!--STUDENT-->
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+
+                                <li>
+                                    <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> </a>
+                                </li>
+                                <li>
+                                    <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> Summery Appoint</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <?php }
-                if($_SESSION['permission'] == "teacher"){ ?>
-                <!--TEACHER-->
-                                <div class="navbar-default sidebar" role="navigation">
-                                    <div class="sidebar-nav navbar-collapse">
-                                        <ul class="nav" id="side-menu">
-                                            <li class="sidebar-search">
-                                                <div class="input-group custom-search-form">
-                                                    <input type="text" class="form-control" placeholder="Search...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button">
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
-                                            </li>
-                                            <li>
-                                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
-                                            </li>
-                                            <li>
-                                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
-                                            </li>
-                
-                                        </ul>
-                                    </div>
-                                </div>
+                    <?php
+                }
+                if ($_SESSION['permission'] == "teacher") {
+                    ?>
+                    <!--TEACHER-->
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li>
+                                    <a href=""><i class="fa fa-book fa-fw"></i> ตารางแสดงการนัดหมาย</a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-book fa-fw"></i> อนุมัติการนัดหมาย</a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-university fa-fw"></i> อนุมัตินักเรียน</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 <?php } ?>
             </nav>
         </div>
