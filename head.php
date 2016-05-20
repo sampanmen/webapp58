@@ -12,15 +12,14 @@
         <!-- MetisMenu CSS -->
         <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
         <!-- DataTables CSS -->
+<!--        <link href="../bower_components/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <link href="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
         <!-- DataTables Responsive CSS -->
-        <link href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!--        <link href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">-->
         <!-- Custom CSS -->
         <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <!--Login CSS-->
-        <link rel="stylesheet" href="login-screen/css/style.css">
+        <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
         <!--Calendar CSS-->
         <link href="../css/calendar.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -231,7 +230,7 @@
             <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
             <!-- DataTables JavaScript -->
             <script src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-            <script src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+            <script src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
             <!-- Page-Level Demo Scripts - Tables - Use for reference -->
             <script>
                 $(document).ready(function () {
@@ -242,11 +241,9 @@
             </script>
             <!-- Custom Theme JavaScript -->
             <script src="../dist/js/sb-admin-2.js"></script>
-            <!--jquery login-->
-            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-            <script src="login-screen/js/index.js"></script>
+           
             <!--Calendar-->
-            <script src="js/calendar.js" type="text/javascript"></script>
+            <script src="../js/calendar.js" type="text/javascript"></script>
         </footer>
 
     </body>
