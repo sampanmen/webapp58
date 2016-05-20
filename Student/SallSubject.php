@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Course Registration </h1>
+                <h1 class="page-header">รายวิชาที่ลงทะเบียน </h1>
             </div>
         </div>
         <div class="row">
@@ -14,7 +14,7 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No.</th>
+                                        <th class="text-center">ลำดับที่</th>
                                         <th>ID Subject</th>
                                         <th>Subject Name</th>
                                         <th>Teacher</th>
