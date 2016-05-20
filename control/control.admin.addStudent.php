@@ -9,13 +9,13 @@ $get_sname = isset($_POST['snamestudent']) ? $_POST['snamestudent'] : "";
 $get_position = isset($_POST['position']) ? $_POST['position'] : "";
 $get_username = isset($_POST['username']) ? $_POST['username'] : "";
 $get_password = isset($_POST['password']) ? $_POST['password'] : "";
-$get_permission = "teacher";
+$get_permission = "student";
 $get_status = "active";
 
 if (($res = addUser($get_id, $get_titlename, $get_name, $get_sname, $get_username, $get_password, $get_status, $get_position, $get_permission)) != FALSE) {
-    header("Location: ../Admin/AviewTeacher.php?p=add_student_completed");
+    header("Location: ../Admin/AviewStudent.php?p=add_student_completed");
 //    echo "yes";
 } else {
-    header("Location: ../Admin/AviewTeacher.php?p=add_student_error");
+    header("Location: ../Admin/AviewStudent.php?p=add_student_error");
 //    echo "no";
 }
