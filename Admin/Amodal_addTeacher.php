@@ -1,3 +1,4 @@
+<form action="../control/control.admin.addTeacher.php" method="POST">
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title" id="gridSystemModalLabel">New Teacher</h4>
@@ -70,7 +71,7 @@
     <button type="submit" class="btn btn-primary">Save</button>
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
-
+</form>
 
 
 
