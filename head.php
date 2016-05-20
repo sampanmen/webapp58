@@ -12,10 +12,10 @@
         <!-- MetisMenu CSS -->
         <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
         <!-- DataTables CSS -->
-<!--        <link href="../bower_components/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+        <!--        <link href="../bower_components/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <link href="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
         <!-- DataTables Responsive CSS -->
-<!--        <link href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">-->
+        <!--        <link href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">-->
         <!-- Custom CSS -->
         <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
         <!-- Custom Fonts -->
@@ -38,66 +38,6 @@
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-alerts">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-comment fa-fw"></i> New Comment
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-tasks fa-fw"></i> New Task
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-alerts -->
-                    </li>
-                    <!-- /.dropdown -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
@@ -111,9 +51,37 @@
                         </ul>
                     </li>
                 </ul>
-         
+
                 <!--ADMIN-->
-<!--                <div class="navbar-default sidebar" role="navigation">
+                <!--                <div class="navbar-default sidebar" role="navigation">
+                                    <div class="sidebar-nav navbar-collapse">
+                                        <ul class="nav" id="side-menu">
+                                            <li class="sidebar-search">
+                                                <div class="input-group custom-search-form">
+                                                    <input type="text" class="form-control" placeholder="Search...">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default" type="button">
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                               
+                                            </li>
+                                            <li>
+                                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
+                                            </li>
+                                            <li>
+                                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
+                                            </li>
+                                            <li>
+                                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
+                                            </li>
+                
+                                        </ul>
+                                    </div>
+                                </div>-->
+                <!--STUDENT-->
+                <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li class="sidebar-search">
@@ -125,23 +93,18 @@
                                         </button>
                                     </span>
                                 </div>
-                               
                             </li>
                             <li>
-                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
+                                <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> Course Registration</a>
                             </li>
                             <li>
-                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
+                                <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> Summery Appoint</a>
                             </li>
-                            <li>
-                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
-                            </li>
-
                         </ul>
                     </div>
-                </div>-->
-                <!--STUDENT-->
-                                <div class="navbar-default sidebar" role="navigation">
+                </div>
+                <!--TEACHER-->
+                <!--                <div class="navbar-default sidebar" role="navigation">
                                     <div class="sidebar-nav navbar-collapse">
                                         <ul class="nav" id="side-menu">
                                             <li class="sidebar-search">
@@ -155,41 +118,18 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> Course Registration</a>
+                                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
                                             </li>
                                             <li>
-                                                <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> Summery Appoint</a>
+                                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
                                             </li>
+                                            <li>
+                                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
+                                            </li>
+                
                                         </ul>
                                     </div>
-                                </div>
-                <!--TEACHER-->
-<!--                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
-                            </li>
-                            <li>
-                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
-                            </li>
-                            <li>
-                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>-->
+                                </div>-->
             </nav>
         </div>
         <!--        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -241,7 +181,7 @@
             </script>
             <!-- Custom Theme JavaScript -->
             <script src="../dist/js/sb-admin-2.js"></script>
-           
+
             <!--Calendar-->
             <script src="../js/calendar.js" type="text/javascript"></script>
         </footer>
