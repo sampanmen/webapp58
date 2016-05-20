@@ -5,10 +5,16 @@ require_once '../model/login.php';
 $getUser = $_POST['username'];
 $getPass = $_POST['password'];
 
+session_start();
+
 if (($resLogin = login($getUser, $getPass)) != FALSE) {
     $getPermission = $resLogin['permission'];
-//    echo $getPermission;
-//    print_r($resLogin);
+    $getUsername = $resLogin['username'];
+    $getIdUser = $resLogin['idUser'];
+
+    $_SESSION['permission'] = $getPermission;
+    $_SESSION['username'] = $getUsername;
+    $_SESSION['idUser'] = $getIdUser;
 
     switch ($getPermission) {
         case 'student':
@@ -21,6 +27,7 @@ if (($resLogin = login($getUser, $getPass)) != FALSE) {
             header("Location: ../Admin/Amanage.php");
             break;
         default:
+            unset($_SESSION['permission']);
             header("Location: ../index.php?p=permission_error");
             break;
     }
