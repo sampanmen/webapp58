@@ -22,6 +22,7 @@
         <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
         <!--Calendar CSS-->
         <link href="../css/calendar.css" rel="stylesheet" type="text/css"/>
+        <link href="../bower_components/Datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <?php
@@ -167,13 +168,22 @@
                     });
                 });
             </script>
+            <script src="../bower_components/Datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
             <!--SCHEDULE-->
             <script src="../js/student/schedule.js" type="text/javascript"></script>
+            <!--datepicker-->
+            <script type="text/javascript">
+                $('#myModal').on('shown.bs.modal', function (e) {
+                   
+                        $('#appdatepicker').datepicker();
+                   
+                });
+            </script>
             <!-- Custom Theme JavaScript -->
             <script src="../dist/js/sb-admin-2.js"></script>
             <!--Calendar-->
             <!--<script src="../js/calendar.js" type="text/javascript"></script>-->
-            
+
         </footer>
 
     </body>

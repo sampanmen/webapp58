@@ -28,7 +28,7 @@
                         <label>นามสกุล / Surname</label>
                     </div>
                     <div class="form-group col-lg-6">
-                         <input class="form-control" name="namestudent">                         
+                        <input class="form-control" name="namestudent">                         
                     </div>
                 </div>
                 <div class="col-lg-12">  
@@ -36,7 +36,7 @@
                         <label>ชั้น/ปี/ Year/Room</label>
                     </div>
                     <div class="form-group col-lg-6">
-                         <input class="form-control" name="yearroomstudent">                         
+                        <input class="form-control" name="yearroomstudent">                         
                     </div>
                 </div>
                 <div class="col-lg-12">  
@@ -53,38 +53,35 @@
                                     <th>Date</th>
                                     <th>Start-Time</th>
                                     <th>End-Time</th>
-                             
+
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <select class="form-control" name="date">
-                                            <option value="1" selected="">Monday</option>
-                                            <option value="2">Tuesday</option>
-                                            <option value="3">Wednesday</option>
-                                            <option value="4">Thursday</option>
-                                            <option value="5">Friday</option>
-                                            <option value="6">Saturday</option>
-                                            <option value="7">Sunday</option>
-                                        </select>  
+                                        <div class="col-md-5"style="margin-left: 0;padding: 0;" >
+                                            <div class='input-group date' >
+                                                <input type='text' class="form-control" data-provide="datepicker" data-date-language="th-th" id="appdatepicker" name="appdatepicker" onkeydown="return false"/>
+                                                <span class="input-group-addon btn" id="appdatepicker" style="width: auto;"><i class="glyphicon glyphicon-calendar"></i></span> 
+                                            </div>                                                                            
+                                        </div>
                                     </td>
                                     <td><input type="time" class="form-control" name="startime"> </td>
                                     <td><input type="time" class="form-control" name="endtime"> </td>
-                              
-                            </tr>                                                     
+
+                                </tr>                                                     
 
                             </tbody>
                         </table>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-12">  
                     <div class="col-lg-12">                                           
                         <label>หัวข้อ / Title</label>
                     </div>
                     <div class="form-group col-lg-6">
-                         <input class="form-control" name="titlestudent">                         
+                        <input class="form-control" name="titlestudent">                         
                     </div>
                 </div>
                 <div class="col-lg-12">  
