@@ -19,6 +19,27 @@ function addSubject($idSubject, $nameSubject) {
     }
 }
 
+function addSubjectSchedule($idSubject, $startTime,$endTime,$room,$day) {
+    $conn = dbconnect();
+    $SQLCommand = "INSERT INTO `subject_schedule`(`idSchedule`, `startTime`, `endTime`, `room`, `day`, `idSubject`) "
+            . "VALUES (NULL,:startTime,:endTime,:room,:day,:idSubject)";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":startTime" => $startTime,
+                ":endTime" => $endTime,
+                ":room" => $room,
+                ":day" => $day,
+                ":idSubject" => $idSubject
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idSchedule = $conn->lastInsertId();
+    } else {
+        return false;
+    }
+}
+
 function getSubjectbyStudent($idStudent) {
     $conn = dbconnect();
     $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname "
