@@ -49,7 +49,7 @@
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> ตั้งค่า</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="control/control.logout.php"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
+                            <li><a href="../webapp58/control/control.logout.php"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
                             </li>
                         </ul>
                     </li>
