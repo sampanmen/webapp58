@@ -42,7 +42,7 @@ function addSubjectSchedule($idSubject, $startTime,$endTime,$room,$day) {
 
 function getSubjectbyStudent($idStudent) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "INNER JOIN enrollment e on e.idTeaching = t.idTeaching "
@@ -66,7 +66,7 @@ function getSubjectbyStudent($idStudent) {
 
 function getSubjectbyTeacher($idTeacher) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher AND t.idUserTeacher = :idTeacher";
