@@ -89,10 +89,10 @@
                             <ul class="nav" id="side-menu">
 
                                 <li>
-                                    <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> </a>
+                                    <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> รายวิชาที่ลงทะเบียน </a>
                                 </li>
                                 <li>
-                                    <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> Summery Appoint</a>
+                                    <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> สรุปผลการนัดหมาย</a>
                                 </li>
                             </ul>
                         </div>
