@@ -24,6 +24,9 @@
         <link href="../css/calendar.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <?php
+        session_start();
+        ?>
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -53,6 +56,7 @@
                 </ul>
 
                 <!--ADMIN-->
+               
                 <!--                <div class="navbar-default sidebar" role="navigation">
                                     <div class="sidebar-nav navbar-collapse">
                                         <ul class="nav" id="side-menu">
@@ -100,6 +104,7 @@
                             <li>
                                 <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> Summery Appoint</a>
                             </li>
+                            <?php echo $_SESSION['permission']; ?>
                         </ul>
                     </div>
                 </div>
@@ -132,34 +137,34 @@
                                 </div>-->
             </nav>
         </div>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
                 </div>
-                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
                 </div>
-                <div class="modal fade" id="myModal1-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal1-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
                 </div>
-                <div class="modal fade" id="myModal2-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal2-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
                 </div>
+            </div>
+        </div>
         <!-- /#wrapper -->
         <footer>
             <!-- jQuery -->
