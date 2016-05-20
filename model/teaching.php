@@ -1,7 +1,7 @@
 <?php
 require_once '../functions/connection.inc.php';
 
-function addTeaching($idSubject,$idUserTecher,$idTerm,$groupLearn) {
+function addTeaching($idSubject,$idUserTeacher,$idTerm,$groupLearn) {
     $conn = dbconnect();
     $SQLCommand = "INSERT INTO `teaching`(`idTeaching`, `idUserTeacher`, `idSubject`, `idTerm`, `groupLearn`) "
             . "VALUES (NULL,:idUserTeacher,:idSubject,:idTerm,:groupLearn)";
