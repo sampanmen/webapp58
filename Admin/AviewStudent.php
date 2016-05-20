@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ห้อง ป.6/3 <button class="btn btn-circle glyphicon-plus" href="Amodal_addStudent.php" data-toggle="modal" data-target="#myModal-addstudent"></button></h1>
+               <h1 class="page-header">ห้อง ป.6/3 <button class="btn btn-circle glyphicon-plus" href="Amodal_addStudent.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -33,7 +33,7 @@
                                         <td>newnewness</td>
                                         <td>123456</td>
                                         <td class="text-center"><label class="label label-success" href="">active</label></td>
-                                        <td><button class="btn btn-circle glyphicon-pencil" href="Amodal_editStudent.php" data-toggle="modal" data-target="#myModal-editstudent"></button></td>
+                                        <td><button class="btn btn-circle glyphicon-pencil" href="..\AppointmentSchool\Amodal_editStudent.php" data-toggle="modal" data-target="#myModal2"></button></td>
                                     </tr>     
                                 </tbody>
                             </table>
@@ -44,16 +44,5 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModal-addstudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="myModal-editstudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-        </div>
-    </div>
-</div>
+
 

@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">All Subject <button class="btn btn-circle glyphicon-plus" href="Amodal_addSubject.php" data-toggle="modal" data-target="#myModal-addsubject"></button></h1>
+                <h1 class="page-header">All Subject <button class="btn btn-circle glyphicon-plus" href="Amodal_addSubject.php" data-toggle="modal" data-target="#myModal1-lg"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -29,7 +29,7 @@
                                         <td>Web App</td>
                                         <td>Nutchanart Sattayakawee</td>
                                         <td class="text-center"><label class="label label-success" href="">Open</label></td>
-                                        <td><button class="btn btn-default" href="Amodal_editSubject.php" data-toggle="modal" data-target="#myModal-editsubject">Detail</button></td>
+                                        <td><button class="btn btn-default" href="Amodal_editSubject.php" data-toggle="modal" data-target="#myModal2-lg">Detail</button></td>
                                     </tr>     
                                 </tbody>
                             </table>
@@ -40,19 +40,6 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModal-addsubject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
 
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="myModal-editsubject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-
-        </div>
-    </div>
-</div>
 
 

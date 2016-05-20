@@ -33,7 +33,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /.row (nested) -->
         </div>
     </div>
     <div class="modal-footer">
