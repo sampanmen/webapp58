@@ -23,7 +23,8 @@
                                     <tr>
                                         <td>2559</td>
                                         <td>1</td>
-                                        <td><button class="btn btn-default"><a href="../Admin/ARoom.php" >รายละเอียด</a></button></td>
+                                        <td><button class="btn btn-default"><a href="../Admin/ARoom.php" >เพิ่มวิชา</a></button>
+                                            <button class="btn btn-default"><a href="../Admin/ARoom.php" ></a></button></td>
                                     </tr>     
                                 </tbody>
                             </table>
