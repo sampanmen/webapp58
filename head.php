@@ -167,11 +167,13 @@
                     });
                 });
             </script>
+            <!--SCHEDULE-->
+            <script src="../js/student/schedule.js" type="text/javascript"></script>
             <!-- Custom Theme JavaScript -->
             <script src="../dist/js/sb-admin-2.js"></script>
-
             <!--Calendar-->
-            <script src="../js/calendar.js" type="text/javascript"></script>
+            <!--<script src="../js/calendar.js" type="text/javascript"></script>-->
+            
         </footer>
 
     </body>
