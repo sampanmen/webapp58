@@ -1,9 +1,12 @@
 <?php
-require '../functions/connection.inc.php';
+
+require_once '../functions/connection.inc.php';
 
 function login($username, $password) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT * FROM user WHERE username =:username AND password = :password";
+    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`username`,`status`,`position`,`permission` "
+            . "FROM user "
+            . "WHERE username =:username AND password = :password";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -25,4 +28,3 @@ function logout() {
     unset($_SESSION['member']);
     return TRUE;
 }
-
