@@ -24,7 +24,7 @@ if (($resLogin = login($getUser, $getPass)) != FALSE) {
             header("Location: ../Teacher/TsummeryAppoint.php");
             break;
         case 'admin':
-            header("Location: ../Admin/Amanage.php");
+            header("Location: ../Admin/ATerm.php");
             break;
         default:
             unset($_SESSION['permission']);
