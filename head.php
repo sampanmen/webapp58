@@ -56,34 +56,36 @@
                 </ul>
 
                 <!--ADMIN-->
-               
-                <!--                <div class="navbar-default sidebar" role="navigation">
-                                    <div class="sidebar-nav navbar-collapse">
-                                        <ul class="nav" id="side-menu">
-                                            <li class="sidebar-search">
-                                                <div class="input-group custom-search-form">
-                                                    <input type="text" class="form-control" placeholder="Search...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button">
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                               
-                                            </li>
-                                            <li>
-                                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
-                                            </li>
-                                            <li>
-                                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
-                                            </li>
-                                            <li>
-                                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
-                                            </li>
-                
-                                        </ul>
+                <?php if ($_SESSION['permission'] == "admin") { ?>
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
                                     </div>
-                                </div>-->
+
+                                </li>
+                                <li>
+                                    <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
+                                </li>
+                                <li>
+                                    <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                <?php } 
+                if($_SESSION['permission'] == "student"){?>
                 <!--STUDENT-->
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
@@ -108,8 +110,10 @@
                         </ul>
                     </div>
                 </div>
+                <?php }
+                if($_SESSION['permission'] == "teacher"){ ?>
                 <!--TEACHER-->
-                <!--                <div class="navbar-default sidebar" role="navigation">
+                                <div class="navbar-default sidebar" role="navigation">
                                     <div class="sidebar-nav navbar-collapse">
                                         <ul class="nav" id="side-menu">
                                             <li class="sidebar-search">
@@ -134,7 +138,8 @@
                 
                                         </ul>
                                     </div>
-                                </div>-->
+                                </div>
+                <?php } ?>
             </nav>
         </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
