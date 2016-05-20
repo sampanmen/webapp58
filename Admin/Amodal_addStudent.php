@@ -15,13 +15,20 @@
                             <input class="form-control" name="idstudent"> 
                         </div>
                     </div>
-
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>Title Name</label>
+                        </div>
+                        <div class="form-group col-lg-6"> 
+                            <input class="form-control" type="text" name="titlename"> 
+                        </div>
+                    </div>
                     <div class="col-lg-12">  
                         <div class="col-lg-6">                                           
                             <label>ชื่อ /  Name</label>
                         </div>
                         <div class="form-group col-lg-6"> 
-                            <input class="form-control" name="nametstydent"> 
+                            <input class="form-control" type="text" name="nametstydent"> 
                         </div>
                     </div>
                     <div class="col-lg-12">  
@@ -29,7 +36,7 @@
                             <label>นามสกุล / Surname</label>
                         </div>
                         <div class="form-group col-lg-6">
-                            <input class="form-control" name="snamestudent">                                
+                            <input class="form-control" type="text" name="snamestudent">                                
                         </div>
                     </div>
                     <div class="col-lg-12">  
@@ -37,7 +44,7 @@
                             <label>ชื่อบัญชีผู้ใช้ / Username</label>
                         </div>
                         <div class="form-group col-lg-6">
-                            <input class="form-control" name="username">                                   
+                            <input class="form-control"type="text" name="username">                                   
                         </div>
                     </div>
                     <div class="col-lg-12">  

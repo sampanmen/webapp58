@@ -16,6 +16,7 @@
                                     <tr>
                                         <th class="text-center">No.</th>
                                         <th>ID Student</th>
+                                        <th>Title Name</th>
                                         <th>Student Name</th>
                                         <th>Student Surname</th>
                                         <th>Username</th>
@@ -28,12 +29,13 @@
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td>5520502978</td>
+                                        <td>นางสาว</td>
                                         <td>ธิดารัตน์</td>
                                         <td>ช้างแก้ว</td>
                                         <td>newnewness</td>
                                         <td>123456</td>
                                         <td class="text-center"><label class="label label-success" href="">active</label></td>
-                                        <td><button class="btn btn-circle glyphicon-pencil" href="..\AppointmentSchool\Amodal_editStudent.php" data-toggle="modal" data-target="#myModal2"></button></td>
+                                        <td><button class="btn btn-circle glyphicon-pencil" href="Amodal_editStudent.php" data-toggle="modal" data-target="#myModal2"></button></td>
                                     </tr>     
                                 </tbody>
                             </table>
