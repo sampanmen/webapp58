@@ -3,9 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">วิชาที่เปิดในภาคการศึกษานี้<button class="btn btn-circle glyphicon-plus" href="Amodal_addSubject.php" data-toggle="modal" data-target="#myModal1-lg"></button></h1>
-            
-            
+                <h1 class="page-header">วิชาที่เปิด เทอม <?= $_GET['term'] ?> ปี <?= $_GET['year'] ?>  <button class="btn btn-circle glyphicon-plus" href="Amodal_addSubject.php?termid=<?= $_GET['idTerm'] ?>" data-toggle="modal" data-target="#myModal1-lg"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -23,33 +21,32 @@
                                         <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbodyASubject">
+                                <tbody id="tbodyAviewSubject">
 
                                 </tbody>
                             </table>
                             <script>
-                                var url = "../control/control.admin.getTeacher.php";
+                                var url = "../control/control.admin.getSubject.php?term=<?= $_GET['term'] ?>&year=<?= $_GET['year'] ?>";
                                 $.post(url, function (data) {
                                     var jsonData = jQuery.parseJSON(data);
                                     var i = 1;
                                     for (var key in jsonData) {
                                         var t = "<tr>";
                                         t = t + "<td class='text-center' >" + i + "</td>";
-                                        t = t + "<td >" + jsonData[key]['idUser'] + "</td>";
-                                        t = t + "<td >" + jsonData[key]['titleName'] + jsonData[key]['name'] + "</td>";
-                                        t = t + "<td >" + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td >" + jsonData[key]['position'] + "</td>";
-                                        t = t + "<td class='text-center'><label class='label label-" + (jsonData[key]['status'] == "active" ? 'success' : 'danger') + "'>" + jsonData[key]['status'] + "</label></td>"
-                                        t = t + "<td><button class='btn btn-circle glyphicon-pencil' href='Amodal_editTeacher.php?userid='" + jsonData[key]['idUser'] + " data-toggle='modal' data-target='#myModal2'></button></td>";
+                                        t = t + "<td >" + jsonData[key]['idSubject'] + "</td>";
+                                        t = t + "<td >" + jsonData[key]['nameSubject'] + "</td>";
+                                        t = t + "<td >" + jsonData[key]['titleName'] + jsonData[key]['name'] + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td><button class='btn btn-circle glyphicon-pencil' href='Amodal_editSubject.php?userid='" + jsonData[key]['idSubject'] + " data-toggle='modal' data-target='#myModal2'></button></td>";
                                         t = t + "</tr>";
                                         i++;
-                                        $("#tbodyASubject").append(t);
+                                        $("#tbodyAviewSubject").append(t);
                                     }
                                     //console.log($("#tbody").html());
                                     $('#dataTables-AviewSubject').DataTable({
                                         responsive: true
                                     });
                                 });
+                            </script>
                         </div>
                     </div>
                 </div>

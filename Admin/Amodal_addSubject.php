@@ -1,4 +1,4 @@
-<!--<form action="../control/control.admin.addSubject.php" method="POST">-->
+<form action="../control/control.admin.teaching.php" method="POST">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="gridSystemModalLabel">เพิ่มวิชาใหม่</h4>
@@ -12,7 +12,7 @@
                             <label>วิชา</label>
                         </div>
                         <div class="form-group col-lg-6"> 
-                            <select id="teacher" class="form-control" name="teacherid">
+                            <select id="teacher" class="form-control" name="subjectid">
                                 <option value="1" selected="">00001 WebApp</option>
                                 <option value="2">00002 Analog</option>
                             </select> 
@@ -93,12 +93,12 @@
                                                     </select>  
                                                 </td>
                                                 <td><input type="text" class="form-control" id="location"> </td>
-                                                <td><button class="btn btn-circle glyphicon-plus" onclick="addItem();"></button></td>
+                                                <td><button type="button" class="btn btn-circle glyphicon-plus" onclick="addItem();"></button></td>
 
                                             </tr>                                                     
 
                                         </tfoot>
-                                        <script>                                                        
+                                        <script>
                                             var itemNo = 0;
                                             function addItem() {
                                                 itemNo++;
@@ -114,7 +114,7 @@
                                                         '<td>' + endtime + '<input type="hidden" name="item_brand[]" value="' + endtime + '"></td>' +
                                                         '<td>' + room + '<input type="hidden" name="item_model[]" value="' + room + '"></td>' +
                                                         '<td>' + location + '<input type="hidden" name="item_serialno[]" value="' + location + '"></td>' +
-                                                        '<td><button type="button" class="btn btn-circle" onclick="addItem(\'trItem_' + itemNo + '\')"><i class="glyphicon-plus""></i></button></td>' +
+                                                        '<td><button type="button" class="btn btn-danger btn-circle" onclick="removeItem(\'trItem_' + itemNo + '\')"><i class="glyphicon-minus""></i></button></td>' +
                                                         '</tr>';
                                                 $("#tbItem").append(ItemHTML);
 
@@ -137,11 +137,12 @@
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-<!--</form>-->
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</form>
 
 
 

@@ -25,19 +25,29 @@
                             </select>  
 
                             <script>
-
                                 var url = "../control/control.admin.getTeacher.php";
                                 $.post(url, function (data) {
                                     var obj = jQuery.parseJSON(data);
                                     //alert(obj);
                                     for (var key in obj) {
-                                        var select = '<option value="' + obj[key]['idUser'] + '">' + obj[key]['name'] +" "+ obj[key]['surname']  + '</option>';
+                                        var select = '<option value="' + obj[key]['idUser'] + '">' + obj[key]['name'] + " " + obj[key]['surname'] + '</option>';
                                         $("#teacher").append(select);
                                     }
                                 });
                             </script>
                         </div>
-                    </div>                
+                    </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>ปีการศึกษา</label>
+                        </div>
+                        <div class="form-group col-lg-6"> 
+                            <select id="year" class="form-control" name="year">
+                                <option value="1" selected="">2555</option>
+                                <option value="2">2559</option>
+                            </select>   
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
