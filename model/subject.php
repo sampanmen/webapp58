@@ -221,4 +221,4 @@ function deleteSubjectSchedule($idSchedule) {
 //echo addSubjectSchedule('1', '04:00:00', '05:00:00', 'erf2', 'monday');
 //print_r(getSubjectScheduleByIdTeaching(2));
 //print_r(getAllSubjectByTeacher('E9044',2, 2558));
-print_r(getAllSubjectByAdmin(2, 2558));
+//print_r(getAllSubjectByAdmin(2, 2558));
