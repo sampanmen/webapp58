@@ -28,3 +28,19 @@ function addTeaching($idSubject,$idUserTeacher,$idTerm,$groupLearn) {
         return false;
     }
 }
+
+function deleteTeaching($idTeaching) {
+    $conn = dbconnect();
+    $SQLCommand = "DELETE FROM `teaching` WHERE `idTeaching`=:idTeaching";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idTeaching" => $idTeaching
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idTeaching;
+    } else {
+        return false;
+    }  
+}
