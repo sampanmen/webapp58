@@ -114,8 +114,8 @@
                                                         '<td>' + endtime + '<input type="hidden" name="item_brand[]" value="' + endtime + '"></td>' +
                                                         '<td>' + room + '<input type="hidden" name="item_model[]" value="' + room + '"></td>' +
                                                         '<td>' + location + '<input type="hidden" name="item_serialno[]" value="' + location + '"></td>' +
-                                                        '<td><button type="button" class="btn btn-circle" onclick="addItem(\'trItem_' + itemNo + '\')"><i class="glyphicon-plus""></i></button></td>' +
-                                                        '</tr>';
+                                                        '<td><button type="button" class="btn btn-danger btn-circle" onclick="removeItem(\'trItem_' + itemNo + '\')"><i class="glyphicon-minus""></i></button></td>' +
+                                                         '</tr>';
                                                 $("#tbItem").append(ItemHTML);
 
                                                 $("#date").val('');
