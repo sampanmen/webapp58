@@ -45,6 +45,56 @@ function getUserByPermission($permission) {
     }
 }
 
+/**
+ * Student in one Class room
+ * @param type $idClass -> int
+ * @return boolean
+ */
+function getUserStudentByIdClass($idClass) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom "
+            . "FROM `user` "
+            . "inner JOIN class c on c.idClass = user.idClass  "
+            . "where c.idclass =:idClass ";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idClass" => $idClass
+            ) 
+            );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+function getUserStudentByIdClassAndIdStudent($idClass,$idStudent) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom "
+            . "FROM `user` "
+            . "inner JOIN class c on c.idClass = user.idClass  "
+            . "where c.idclass =:idClass and user.idUser =:idUser " ;
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idClass" => $idClass,
+                ":idUser" => $idStudent
+            ) 
+            );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
 function getUsers(){
     $conn = dbconnect();
     $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,c.`idClass`,c.classRoom "
@@ -188,4 +238,7 @@ function deleteUser($idUser) {
         return false;
     }
 }
+
+//print_r(getUserByStudentAndClass('2'));
+print_r(getUserStudentByIdClassAndIdStudent('1','5520503061'));
 

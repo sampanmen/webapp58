@@ -1,6 +1,7 @@
 <?php
 require_once '../functions/connection.inc.php';
 
+
 /**
  * 
  * @param type $startDateTime -> datetime format 'yyyy-mm-dd hh:mm:ss'

@@ -73,3 +73,4 @@ function deleteClass($idClass) {
     }
 }
 
+//print_r(getClassByIdClass(1));

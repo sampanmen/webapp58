@@ -1,6 +1,14 @@
 <?php
 require_once '../functions/connection.inc.php';
 
+function getEnrollments() {
+    
+}
+
+function getEnrollmentByID($idEnrollment) {
+    
+}
+
 /**
  * 
  * @param type $enrollDate -> date format 'yyyy-mm-dd'
