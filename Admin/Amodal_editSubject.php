@@ -48,13 +48,13 @@
                                             <tr>
                                                 <td>
                                                     <select class="form-control" id="date">
-                                                        <option value="1" selected="">Monday</option>
-                                                        <option value="2">Tuesday</option>
-                                                        <option value="3">Wednesday</option>
-                                                        <option value="4">Thursday</option>
-                                                        <option value="5">Friday</option>
-                                                        <option value="6">Saturday</option>
-                                                        <option value="7">Sunday</option>
+                                                        <option value="Monday" selected="">จันทร์</option>
+                                                        <option value="Tuesday">อังคาร</option>
+                                                        <option value="Wednesday">พุธ</option>
+                                                        <option value="Thursday">พฤหัสบดี</option>
+                                                        <option value="Friday">ศุกร์</option>
+                                                        <option value="Saturday">เสาร์</option>
+                                                        <option value="Sunday">อาทิตย์</option>
                                                     </select>  
                                                 </td>
                                                 <td><input type="time" class="form-control" id="startime"> </td>
