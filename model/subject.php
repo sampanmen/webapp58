@@ -66,12 +66,13 @@ function getAllSubjectByTeacher($idTeacher, $term, $year) {
 
 function getAllSubjectByAdmin($term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(t.groupLearn),tm.yearTerm,tm.term "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
-            . "where tm.yearTerm =:year and tm.term=:term";
+            . "where tm.yearTerm =:year and tm.term=:term "
+            . "group by s.idSubject";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -218,5 +219,6 @@ function deleteSubjectSchedule($idSchedule) {
 }
 
 //echo addSubjectSchedule('1', '04:00:00', '05:00:00', 'erf2', 'monday');
-print_r(getSubjectScheduleByIdTeaching(2));
+//print_r(getSubjectScheduleByIdTeaching(2));
 //print_r(getAllSubjectByTeacher('E9044',2, 2558));
+print_r(getAllSubjectByAdmin(2, 2558));
