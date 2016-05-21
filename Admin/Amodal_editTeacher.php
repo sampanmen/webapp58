@@ -1,80 +1,92 @@
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" id="gridSystemModalLabel">00001</h4>
-</div>
+<form action="../control/control.admin.editTeacher.php" method="POST">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel"><?= $_GET['userid'] ?></h4>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>รหัสประจำตัว</label>
+                        </div>
+                        <div class="form-group col-lg-6"> 
+                            <p><?= $_GET['userid'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>ชื่อบัญชีผู้ใช้</label>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <p id="username"></p>                                  
+                        </div>
+                    </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>คำนำหน้าชื่อ</label>
+                        </div>
+                        <div class="form-group col-lg-6"> 
+                            <input type="text" class="form-control" name="titlename" id="titlename"> 
+                        </div>
+                    </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>ชื่อ</label>
+                        </div>
+                        <div class="form-group col-lg-6"> 
+                            <input type="text" class="form-control" name="name" id="name"> 
+                        </div>
+                    </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>นามสกุล</label>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <input type="text" class="form-control" name="sname" id="sname">                             
+                        </div>
+                    </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>ตำแหน่ง</label>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <input type="text" class="form-control" name="position" id="position">                                
+                        </div>
+                    </div>
 
-<div class="modal-body">
-    <div class="container-fluid">
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>รหัสประจำตัว / ID</label>
-                    </div>
-                    <div class="form-group col-lg-6"> 
-                        <p>00001</p>
-                    </div>
-                </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>ชื่อบัญชีผู้ใช้ / Username</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <p>nene</p>                                  
-                    </div>
-                </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>ชื่อ /  Name</label>
-                    </div>
-                    <div class="form-group col-lg-6"> 
-                        <input type="text" class="form-control" name="name"> 
-                    </div>
-                </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>นามสกุล / Surname</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                       <input type="text" class="form-control" name="sname">                             
-                    </div>
-                </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>ตำแหน่ง / Position</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" name="position">                                
-                    </div>
-                </div>
-                
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>สถานะ / status</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <select class="form-control" name="statusieacher" id="statusTeacher">
-                            <option selected value="active">Active</option>
-                            <option value="deactive">Deactive</option>
-                        </select>    
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>สถานะ</label>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <select class="form-control" name="statusieacher" id="statusTeacher" id="statusTeacher">
+                                <option selected value="active">Active</option>
+                                <option value="deactive">Deactive</option>
+                            </select>    
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- /.row (nested) -->
         </div>
-        <!-- /.row (nested) -->
     </div>
-</div>
-
-
-
-
-
-<div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-
-
-
-
-
+    <div class="modal-footer">
+        <input type="hidden" name="userid" value="<?= $_GET['userid'] ?>">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</form>
+<script>
+    var url = "../control/control.admin.getTeacher.php?teacherid=<?= $_GET['userid'] ?>";
+    $.post(url, function (data) {
+        var jsonData = jQuery.parseJSON(data);
+        $("#username").html(jsonData['username']);
+        $("#titlename").val(jsonData['titleName']);
+        $("#name").val(jsonData['name']);
+        $("#sname").val(jsonData['surname']);
+        $("#position").val(jsonData['position']);
+        //$("#name").val(jsonData['teacher']);
+    });
+</script>
