@@ -31,7 +31,7 @@ function addSubject($idSubject, $nameSubject) {
  * @param type $startTime -> time format 'hh:mm:ss'
  * @param type $endTime -> time format 'hh:mm:ss'
  * @param type $room -> str limit 10
- * @param type $day -> str limit 10
+ * @param type $day -> str limit 10 (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
  * @return false or lastInserID
  */
 function addSubjectSchedule($idTeaching, $startTime,$endTime,$room,$day) {
@@ -102,6 +102,11 @@ function getAllSubjectbyTeacher($idTeacher) {
     }
 }
 
+/**
+ * 
+ * @param type $idTeaching from getAllDubjectbyStudent or teacher
+ * @return boolean
+ */
 function getSubjectScheduleByIdTeaching($idTeaching) {
     $conn = dbconnect();
     $SQLCommand = "SELECT t.groupLearn,s.*,ss.startTimeSche,ss.endTimeSche,ss.roomSche,ss.daySche "
@@ -157,4 +162,4 @@ function deleteSubjectSchedule($idSchedule) {
 }
 
 //echo addSubjectSchedule('1', '04:00:00', '05:00:00', 'erf2', 'monday');
-//print_r( getSubjectScheduleByIdTeaching(1));
+//print_r(getSubjectScheduleByIdTeaching(1));
