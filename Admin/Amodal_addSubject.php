@@ -1,4 +1,4 @@
-<form action="../control/control.admin.addSubject.php" method="POST">
+<form action="../control/control.admin.teaching.php" method="POST">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="gridSystemModalLabel">เพิ่มวิชาใหม่</h4>
