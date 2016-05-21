@@ -93,9 +93,9 @@ function getConcludeAppointmentByStudent($idStudent) {
         return false;
     }
 }
-echo '<pre>';
-print_r(getConcludeAppointmentByStudent('777'));
-echo '</pre>';
+//echo '<pre>';
+//print_r(getConcludeAppointmentByStudent('777'));
+//echo '</pre>';
 /**
  * 
  * @param type $idTeacher -> str limit 10
