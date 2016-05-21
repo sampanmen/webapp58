@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-ATerm">
                                 <thead>
                                     <tr>
                                         <th>ปีการศึกษา</th>
@@ -19,25 +19,24 @@
                                         <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbodyRoom">
+                                <tbody id="tbodyTerm">
 
                                 </tbody>
                             </table>
-
                             <script>
                                 var url = "../control/control.admin.getTerm.php";
                                 $.post(url, function (data) {
                                     var jsonData = jQuery.parseJSON(data);
                                     for (var key in jsonData) {
                                         var t = "<tr>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
-                                        t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewSubject.php?term=" + jsonData[key]['idClass'] + "' >รายละเอียด</a></button></td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['yearTerm'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['term'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewSubject.php?term=" + jsonData[key]['term'] +"&year="+ jsonData[key]['yearTerm']+ "' >รายละเอียด</a></button></td>";
                                         t = t + "</tr>";
-                                        $("#tbodyRoom").append(t);
+                                        $("#tbodyTerm").append(t);
                                     }
                                     //console.log($("#tbody").html());
-                                    $('#dataTables-ARoom').DataTable({
+                                    $('#dataTables-ATerm').DataTable({
                                         responsive: true
                                     });
                                 });
