@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">All Subject <button class="btn btn-circle glyphicon-plus" href="Amodal_addAllSubject.php" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">วิชาเรียน <button class="btn btn-circle glyphicon-plus" href="Amodal_addAllSubject.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -14,10 +14,10 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No.</th>
-                                        <th>ID Subject</th>
-                                        <th>Subject Name</th>
-                                        <th>Detail</th>
+                                        <th class="text-center">ลำดับที่</th>
+                                        <th>รหัสวิชา</th>
+                                        <th>ชื่อวิชา</th>
+                                        <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
