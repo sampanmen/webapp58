@@ -1,7 +1,7 @@
 <form action="../control/control.admin.addRoom.php" method="POST">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="gridSystemModalLabel">New Room</h4>
+        <h4 class="modal-title" id="gridSystemModalLabel">เพิ่มห้องเรียน</h4>
     </div>
     <div class="modal-body">
         <div class="container-fluid">
@@ -17,20 +17,16 @@
                     </div>
                     <div class="col-lg-12">  
                         <div class="col-lg-6">                                           
-                            <label>ชื่ออาจารย์ /  Name Teacher</label>
+                            <label>อาจารย์ประจำชั้น</label>
                         </div>
                         <div class="form-group col-lg-6">
-                            <input class="form-control" name="nameteacher">                                   
+                            <select class="form-control" name="nameteacher">
+                                <option value="1" selected="">Nutchanart Sattayakawee</option>
+                                <option value="2">Kairat Jareanra</option>
+                            </select>  
+
                         </div>
-                    </div>
-                    <div class="col-lg-12">  
-                        <div class="col-lg-6">                                           
-                            <label>นามสกุล / Surname</label>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <input class="form-control" name="snameteacher">                                
-                        </div>
-                    </div>
+                    </div>                
                 </div>
             </div>
         </div>
