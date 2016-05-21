@@ -27,6 +27,9 @@ function getAppointmentByTeacher($idUserTeacher) {
     }
 }
 
+function getAppointmentByStudent($idStudent) {
+    
+}
 /**
  * 
  * @param type $startDateTime -> datetime format 'yyyy-mm-dd hh:mm:ss'
