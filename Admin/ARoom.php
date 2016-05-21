@@ -14,6 +14,7 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-ARoom">
                                 <thead>
                                     <tr>
+                                        <th>ปีการศึกษา</th>
                                         <th>ห้องเรียน</th>
                                         <th>ครูประจำชั้น</th>
                                         <th>รายละเอียด</th>
@@ -30,6 +31,7 @@
                                     var jsonData = jQuery.parseJSON(data);
                                     for (var key in jsonData) {
                                         var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
                                         t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
                                         t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
                                         t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewStudent.php?roomid=" + jsonData[key]['idClass'] + "' >รายละเอียด</a></button></td>";
