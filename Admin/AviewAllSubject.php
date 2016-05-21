@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-AviewAllSubject">
                                 <thead>
                                     <tr>
                                         <th class="text-center">ลำดับที่</th>
@@ -20,15 +20,33 @@
                                         <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>02204445</td>
-                                        <td>Web App</td>
-                                        <td><button class="btn btn-circle glyphicon-pencil" href="Amodal_editAllSubject.php" data-toggle="modal" data-target="#myModal2"></button></td>
-                                    </tr>     
+                                <tbody id="tbodyAAllSubject">
+
                                 </tbody>
                             </table>
+
+                            <script>
+                                var url = "../control/control.admin.getSubject.php";
+                                $.post(url, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    var i = 1;
+                                    for (var key in jsonData) {
+                                        var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + i + "</td>";
+                                        t = t + "<td >" + jsonData[key]['idSubject'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['nameSubject'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/Amodal_editAllSubject?subjectid=" + jsonData[key]['idSubject'] + "' >รายละเอียด</a></button></td>";
+                                        t = t + "</tr>";
+                                        i++;
+                                        $("#tbodyAAllSubject").append(t);
+                                        
+                                    }
+                                    //console.log($("#tbody").html());
+                                    $('#dataTables-AviewAllSubject').DataTable({
+                                        responsive: true
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
