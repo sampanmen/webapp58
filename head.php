@@ -65,7 +65,7 @@
                         <div class="sidebar-nav navbar-collapse">
                             <ul class="nav" id="side-menu">
                                 <li>
-                                    <a href="ATerm.php"><i class="fa fa-book fa-fw"></i> ปีการศึกษา</a>
+                                    <a href="ATerm.php"><i class="fa fa-reorder fa-fw"></i> ปีการศึกษา</a>
                                 </li>
                                 <li>
                                     <a href="AviewAllSubject.php"><i class="fa fa-book fa-fw"></i> วิชา</a>
@@ -74,7 +74,7 @@
                                     <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> คุณครู</a>
                                 </li>
                                 <li>
-                                    <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> นักเรียน</a>
+                                    <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> ห้องเรียน</a>
                                 </li>
 
                             </ul>
