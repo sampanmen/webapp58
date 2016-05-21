@@ -90,7 +90,7 @@
                             <ul class="nav" id="side-menu">
 
                                 <li>
-                                    <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> รายวิชาที่ลงทะเบียน </a>
+                                    <a href="SallSubject.php"><i class="fa fa-file-o fa-fw"></i> รายวิชาที่ลงทะเบียน </a>
                                 </li>
                                 <li>
                                     <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> สรุปผลการนัดหมาย</a>
@@ -107,13 +107,13 @@
                         <div class="sidebar-nav navbar-collapse">
                             <ul class="nav" id="side-menu">
                                 <li>
-                                    <a href=""><i class="fa fa-book fa-fw"></i> ตารางแสดงการนัดหมาย</a>
+                                    <a href="TappointSchedule.php"><i class="fa fa-table fa-fw"></i> ตารางแสดงการนัดหมาย</a>
                                 </li>
                                 <li>
-                                    <a href=""><i class="fa fa-book fa-fw"></i> อนุมัติการนัดหมาย</a>
+                                    <a href="TsummeryAppoint.php"><i class="fa fa-book fa-fw"></i> อนุมัติการนัดหมาย</a>
                                 </li>
                                 <li>
-                                    <a href=""><i class="fa fa-university fa-fw"></i> อนุมัตินักเรียน</a>
+                                    <a href="Tenroll.php"><i class="fa fa-university fa-fw"></i> อนุมัตินักเรียน</a>
                                 </li>
                             </ul>
                         </div>

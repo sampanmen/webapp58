@@ -61,8 +61,7 @@
                                     <td>
                                         <div class="col-md-5"style="margin-left: 0;padding: 0;" >
                                             <div class='input-group date' >
-                                                <input type='text' class="form-control" data-provide="datepicker" data-date-language="th-th" id="appdatepicker" name="appdatepicker" onkeydown="return false"/>
-                                                <span class="input-group-addon btn" id="appdatepicker" style="width: auto;"><i class="glyphicon glyphicon-calendar"></i></span> 
+                                                <input type='date' class="form-control" data-provide="datepicker" id="appdatepicker" name="appdatepicker" onkeydown="return false"/>
                                             </div>                                                                            
                                         </div>
                                     </td>
