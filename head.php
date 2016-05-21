@@ -167,6 +167,10 @@
                         responsive: true
                     });
                 });
+
+                $('body').on('hidden.bs.modal', '.modal', function () {
+                    $(this).removeData('bs.modal');
+                });
             </script>
             <script src="../bower_components/Datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
             <!--SCHEDULE-->
@@ -174,9 +178,9 @@
             <!--datepicker-->
             <script type="text/javascript">
                 $('#myModal').on('shown.bs.modal', function (e) {
-                   
-                        $('#appdatepicker').datepicker();
-                   
+
+                    $('#appdatepicker').datepicker();
+
                 });
             </script>
             <!-- Custom Theme JavaScript -->
