@@ -17,10 +17,18 @@
                 </div>
                 <div class="col-lg-12">  
                     <div class="col-lg-6">                                           
+                        <label>ชื่อบัญชีผู้ใช้ / Username</label>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>nene</p>                                  
+                    </div>
+                </div>
+                <div class="col-lg-12">  
+                    <div class="col-lg-6">                                           
                         <label>ชื่อ /  Name</label>
                     </div>
                     <div class="form-group col-lg-6"> 
-                        <p>Miss. Nutchanart</p> 
+                        <input type="text" class="form-control" name="name"> 
                     </div>
                 </div>
                 <div class="col-lg-12">  
@@ -28,7 +36,7 @@
                         <label>นามสกุล / Surname</label>
                     </div>
                     <div class="form-group col-lg-6">
-                        <p>Satayakawee</p>                                
+                       <input type="text" class="form-control" name="sname">                             
                     </div>
                 </div>
                 <div class="col-lg-12">  
@@ -36,34 +44,18 @@
                         <label>ตำแหน่ง / Position</label>
                     </div>
                     <div class="form-group col-lg-6">
-                        <input class="form-control" name="position">                                
+                        <input type="text" class="form-control" name="position">                                
                     </div>
                 </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>ชื่อบัญชีผู้ใช้ / Username</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <input class="form-control" name="username">                                   
-                    </div>
-                </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
-                        <label>รหัส / Password</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <input class="form-control" type="password" name="password">                                   
-                    </div>
-                </div>
+                
                 <div class="col-lg-12">  
                     <div class="col-lg-6">                                           
                         <label>สถานะ / status</label>
                     </div>
                     <div class="form-group col-lg-6">
                         <select class="form-control" name="statusieacher" id="statusTeacher">
-                            <option selected value="1">Work</option>
-                            <option value="2">No Work</option>
-                            <option value="3">Wait</option>
+                            <option selected value="active">Active</option>
+                            <option value="deactive">Deactive</option>
                         </select>    
                     </div>
                 </div>
