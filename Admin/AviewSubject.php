@@ -36,7 +36,7 @@
                                         t = t + "<td >" + jsonData[key]['idSubject'] + "</td>";
                                         t = t + "<td >" + jsonData[key]['nameSubject'] + "</td>";
                                         t = t + "<td >" + jsonData[key]['titleName'] + jsonData[key]['name'] + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td><button class='btn btn-circle glyphicon-pencil' href='Amodal_editSubject.php?userid='" + jsonData[key]['idSubject'] + " data-toggle='modal' data-target='#myModal2'></button></td>";
+                                        t = t + "<td><button class='btn btn-circle glyphicon-pencil' href='Amodal_editSubject.php?subjectid='" + jsonData[key]['idSubject'] +"&termid="+<?= $_GET['termid'] ?>+ " data-toggle='modal' data-target='#myModal2'></button></td>";
                                         t = t + "</tr>";
                                         i++;
                                         $("#tbodyAviewSubject").append(t);

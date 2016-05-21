@@ -21,7 +21,7 @@ if (($resLogin = login($getUser, $getPass)) != FALSE) {
             header("Location: ../Student/SallSubject.php");
             break;
         case 'teacher':
-            header("Location: ../Teacher/TsummeryAppoint.php");
+            header("Location: ../Teacher/TappointSchedule.php");
             break;
         case 'admin':
             header("Location: ../Admin/ATerm.php");

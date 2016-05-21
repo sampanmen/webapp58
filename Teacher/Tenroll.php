@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Enroll Students</h1>
+                <h1 class="page-header">อนุมัตินักเรียน</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -17,9 +17,9 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No.</th>
-                                        <th class="text-center">ID Subject</th>
-                                        <th>Subject</th>
+                                        <th class="text-center">ลำดับ</th>
+                                        <th class="text-center">รหัสประจำวิชา</th>
+                                        <th>วิชา</th>
                                         <th>Year/Room</th>
                                         <th>Enroll/All</th>
                                         <th>Enroll</th>

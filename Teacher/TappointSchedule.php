@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ตารางแสดงการสอน เสร็จแล้ว <button class="btn btn-circle glyphicon-plus" href="Smodal_addAppointment.php" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">ตารางแสดงการนัดหมาย</h1>
             </div>
             <div>
                 <div class="col-lg-12">  
@@ -12,14 +12,6 @@
                     </div>
                     <div class="form-group col-lg-6"> 
                         <p>Web App</p> 
-                    </div>
-                </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-2">                                           
-                        <label>ผู้สอน / Teacher</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <p>ผศ.นุชนาฎ   สัตยากวี</p>                              
                     </div>
                 </div>
                 <table class="calendar table table-bordered">
