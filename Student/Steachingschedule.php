@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ตารางแสดงการสอน <button class="btn btn-circle glyphicon-plus" href="Smodal_addAppointment.php?subjectid=<?= $_GET['subjectid'] ?>&userid=<?= $_GET['subjectid']?>" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">ตารางแสดงการสอน <button class="btn btn-circle glyphicon-plus" href="Smodal_addAppointment.php?subjectid=<?= $_GET['subjectid'] ?>&userid=<?= $_GET['userid']?>" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
             <div>
                 <div class="col-lg-12">  
