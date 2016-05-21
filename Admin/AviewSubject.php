@@ -20,7 +20,6 @@
                                         <th>ID Subject</th>
                                         <th>Subject Name</th>
                                         <th>Teacher</th>
-                                        <th>Status</th>
                                         <th>Detail</th>
                                     </tr>
                                 </thead>
@@ -30,7 +29,6 @@
                                         <td>02204445</td>
                                         <td>Web App</td>
                                         <td>Nutchanart Sattayakawee</td>
-                                        <td class="text-center"><label class="label label-success" href="">Open</label></td>
                                         <td><button class="btn btn-default" href="Amodal_editSubject.php" data-toggle="modal" data-target="#myModal2-lg">Detail</button></td>
                                     </tr>     
                                 </tbody>

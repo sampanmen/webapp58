@@ -31,7 +31,7 @@
                                     var obj = jQuery.parseJSON(data);
                                     //alert(obj);
                                     for (var key in obj) {
-                                        var select = '<option value="' + obj[key]['idUser'] + '">' + obj[key]['name'] + obj[key]['surname'] + obj[key]['status'] + obj[key]['position'] + obj[key]['permisstion'] + obj[key]['classRoom'] + obj[key]['Advisors'] + '</option>';
+                                        var select = '<option value="' + obj[key]['idUser'] + '">' + obj[key]['name'] +" "+ obj[key]['surname']  + '</option>';
                                         $("#teacher").append(select);
                                     }
                                 });

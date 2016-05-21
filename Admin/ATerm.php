@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ปีการศึกษา <button class="btn btn-circle glyphicon-plus" href="Amodal_addRoom.php" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">ปีการศึกษา <button class="btn btn-circle glyphicon-plus" href="Amodal_addTerm.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -23,8 +23,7 @@
                                     <tr>
                                         <td>2559</td>
                                         <td>1</td>
-                                        <td><button class="btn btn-default"><a href="../Admin/ARoom.php" >เพิ่มวิชา</a></button>
-                                            <button class="btn btn-default"><a href="../Admin/ARoom.php" ></a></button></td>
+                                        <td><button class="btn btn-default"><a href="AviewSubject.php" >Detail</a></button>
                                     </tr>     
                                 </tbody>
                             </table>
