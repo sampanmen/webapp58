@@ -26,10 +26,82 @@ function getAppointmentByTeacher($idUserTeacher) {
         return false;
     }
 }
+/**
+ * 
+ * @param type $idStudent -> str limit 10
+ * @return  false or result
+ */
+function getConcludeAppointmentByStudent($idStudent) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT ap.*,ut.titleName as titleNameTeacher,ut.name nameTeacher,ut.surname surnameTeacher,"
+            . "us.titleName titleNameStudent,us.name nameStudent,us.surname surnameStudent "
+            . "FROM appointment ap "
+            . "INNER JOIN user us on us.idUser = ap.idUserStudent "
+            . "INNER JOIN user ut on ut.idUser =ap.idUserTeacher "
+            . "WHERE ap.idUserStudent = :idStudent  "
+            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE";
 
-function getAppointmentByStudent($idStudent) {
-    
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(array(":idStudent" => $idStudent) );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
 }
+/**
+ * 
+ * @param type $idTeacher -> str limit 10
+ * @return false or result
+ */
+function getConcludeAppointmentByTeacher($idTeacher) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT ap.* ,ut.titleName as titleNameTeacher,ut.name nameTeacher,ut.surname surnameTeacher,"
+            . "us.titleName titleNameStudent,us.name nameStudent,us.surname surnameStudent "
+            . "FROM appointment ap "
+            . "INNER JOIN user us on us.idUser = ap.idUserStudent "
+            . "INNER JOIN user ut on ut.idUser =ap.idUserTeacher "
+            . "WHERE ap.idUserTeacher = :idTeacher  "
+            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(array(":idTeacher" => $idTeacher) );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+/**
+ * 
+ * @param type $idAppointment -> int
+ * @return false or result
+ */
+function getAppointmentByIdAppointment($idAppointment) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT ap.* ,ut.titleName as titleNameTeacher,ut.name nameTeacher,ut.surname surnameTeacher,"
+            . "us.titleName titleNameStudent,us.name nameStudent,us.surname surnameStudent "
+            . "FROM appointment ap "
+            . "INNER JOIN user us on us.idUser = ap.idUserStudent "
+            . "INNER JOIN user ut on ut.idUser =ap.idUserTeacher "
+            . "WHERE ap.idAppointment = :idAppointment  "
+            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(array(":idAppointment" => $idAppointment) );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
 /**
  * 
  * @param type $startDateTime -> datetime format 'yyyy-mm-dd hh:mm:ss'
