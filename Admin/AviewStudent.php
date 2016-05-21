@@ -44,7 +44,7 @@
                                         t = t + "<td>" + jsonData[key]['surname'] + "</td>";
                                         t = t + "<td>" + jsonData[key]['username'] + "</td>";
                                         t = t + "<td class='text-center'><label class='label label-" + (jsonData[key]['status'] == "active" ? 'success' : 'danger') + "'>" + jsonData[key]['status'] + "</label></td>"
-                                        t = t + "<td><button class='btn btn-circle glyphicon-pencil' href='Amodal_editStudent.php?userid='" + jsonData[key]['idUser'] + " data-toggle='modal' data-target='#myModal2'></button></td>";
+                                        t = t + "<td><button class='btn btn-circle glyphicon-pencil' href='Amodal_editStudent.php?userid=" + jsonData[key]['idUser'] + "&roomid=<?= $_GET['roomid']; ?>' data-toggle='modal' data-target='#myModal2'></button></td>";
                                         t = t + "</tr>";
                                         $("#tbody").append(t);
                                     }
