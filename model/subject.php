@@ -11,14 +11,15 @@ require_once '../functions/connection.inc.php';
  */
 function getAllSubjectByStudent($idStudent, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,t.idTeaching,c.classroom as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
+    $SQLCommand = "SELECT s.*,t.idTeaching,GROUP_CONCAT(c.classroom )as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
             . "INNER JOIN class c on c.idClass = t.groupLearn "
             . "INNER JOIN user us on us.idClass = c.idClass "
-            . "where us.idUser = :idStudent and tm.term=:term and tm.yearTerm =:year";
+            . "where us.idUser = :idStudent and tm.term=:term and tm.yearTerm =:year "
+            . "group by s.idSubject";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -46,12 +47,14 @@ function getAllSubjectByStudent($idStudent, $term, $year) {
  */
 function getAllSubjectByTeacher($idTeacher, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(c.classroom )as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
+            . "INNER JOIN class c on c.idClass = t.groupLearn "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
-            . "where t.idUserTeacher = :idTeacher and tm.term=:term and tm.yearTerm =:year";
+            . "where t.idUserTeacher = :idTeacher and tm.term=:term and tm.yearTerm =:year "
+            . "group by s.idSubject ";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -78,9 +81,10 @@ function getAllSubjectByTeacher($idTeacher, $term, $year) {
  */
 function getAllSubjectByAdmin($term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(t.groupLearn) as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(c.classroom) as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
+            . "INNER JOIN class c on c.idClass = t.groupLearn "
             . "inner join term tm on tm.idTerm = t.idTerm "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
             . "where tm.yearTerm =:year and tm.term=:term "
@@ -162,7 +166,7 @@ function updateSubject($idSubject,$nameSubject) {
     }
 }
 /**
- * 
+ * Get schedule teacher is ordered by day and time
  * @param type $idTeacher -> str limit 10
  * @return false or result
  */
@@ -175,7 +179,7 @@ function getSubjectAllSubjectAndSchedule($idTeacher) {
             . "INNER JOIN term tm ON tm.idTerm = t.idTerm "
             . "INNER JOIN user u ON u.idUser = t.idUserTeacher "
             . "where u.idUser = :idUser "
-            . "ORDER BY FIELD(ss.daySche , 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');";
+            . "ORDER BY FIELD(ss.daySche , 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'),ss.startTimeSche ;";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -191,7 +195,9 @@ function getSubjectAllSubjectAndSchedule($idTeacher) {
         return false;
     }
 }
-
+echo '<pre>';
+print_r(getSubjectAllSubjectAndSchedule('E9044'));
+echo '</pre>';
 /**
  * 
  * @param type $idSubject -> str limit 10

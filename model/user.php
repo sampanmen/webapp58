@@ -182,10 +182,10 @@ function addUser($id, $titleName, $name, $surname, $username, $password, $status
  * @param type $position -> str limit 45
  * @return false or idUser
  */
-function updateUserInfo($idUser,$titleName,$name,$surname,$position) {
+function updateUserInfo($idUser,$titleName,$name,$surname,$position,$status) {
     $conn = dbconnect();
     $SQLCommand = "UPDATE `user` SET `titleName`=:titleName,`name`=:name,`surname`=:surname,"
-            . "`position`=:position WHERE `idUser`=:idUser";
+            . "`position`=:position,`status`=:status WHERE `idUser`=:idUser";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -194,7 +194,8 @@ function updateUserInfo($idUser,$titleName,$name,$surname,$position) {
                 ":name" => $name,
                 ":surname" => $surname,
                 ":position" => $position,
-                ":idUser" => $idUser
+                ":idUser" => $idUser,
+                ":status" => $status
             )
     );
 
