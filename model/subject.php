@@ -107,6 +107,36 @@ function getAllSubject() {
 
 /**
  * 
+ * @param type $idTeacher -> str limit 10
+ * @return false or result
+ */
+function getSubjectAllSubjectAndSchedule($idTeacher) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT sb.*,ss.*,t.groupLearn "
+            . "FROM subject sb "
+            . "INNER JOIN teaching t ON t.idSubject = sb.idSubject "
+            . "INNER JOIN subject_schedule ss ON ss.idTeaching = t.idTeaching "
+            . "INNER JOIN term tm ON tm.idTerm = t.idTerm "
+            . "INNER JOIN user u ON u.idUser = t.idUserTeacher "
+            . "where u.idUser = :idUser";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idUser" => $idTeacher
+            )
+    );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * 
  * @param type $idSubject -> str limit 10
  * @param type $nameSubject -> str limit 150
  * @return false or lastInserID
@@ -222,3 +252,4 @@ function deleteSubjectSchedule($idSchedule) {
 //print_r(getSubjectScheduleByIdTeaching(2));
 //print_r(getAllSubjectByTeacher('E9044',2, 2558));
 //print_r(getAllSubjectByAdmin(2, 2558));
+//echo '<pre>',print_r(getSubjectAllSubjectAndSchedule('E9044')),'</pre>';
