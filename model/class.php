@@ -39,15 +39,16 @@ function getClasses() {
  * @param type $idUserTeacher -> str limit 10
  * @return false or lastInsertID
  */
-function addClass($classRoom,$idUserTeacher) {
+function addClass($classRoom,$idUserTeacher,$termClass) {
     $conn = dbconnect();
-    $SQLCommand = "INSERT INTO `class`(`idClass`, `classRoom`, `idUserTeacher`) "
-            . "VALUES (NULL,:classRoom,:idUserTeacher)";
+    $SQLCommand = "INSERT INTO `class`(`idClass`, `classRoom`, `idUserTeacher`, `termClass`) "
+            . "VALUES (NULL,:classRoom,:idUserTeacher,:termClass)";
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
             array(
                 ":classRoom" => $classRoom,
-                ":idUserTeacher" => $idUserTeacher
+                ":idUserTeacher" => $idUserTeacher,
+                ":termClass" => $termClass
             )
     );
     if ($SQLPrepare->rowCount() > 0) {
