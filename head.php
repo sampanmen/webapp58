@@ -112,9 +112,9 @@
                                 <li>
                                     <a href="TsummeryAppoint.php"><i class="fa fa-book fa-fw"></i> อนุมัติการนัดหมาย</a>
                                 </li>
-                                <li>
+<!--                                <li>
                                     <a href="Tenroll.php"><i class="fa fa-university fa-fw"></i> อนุมัตินักเรียน</a>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                     </div>
