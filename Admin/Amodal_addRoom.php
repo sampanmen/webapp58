@@ -24,7 +24,6 @@
                                 <option value="1" selected="">Nutchanart Sattayakawee</option>
                                 <option value="2">Kairat Jareanra</option>
                             </select>  
-
                         </div>
                     </div>                
                 </div>
