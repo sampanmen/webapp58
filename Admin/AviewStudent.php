@@ -53,11 +53,6 @@
                                         responsive: true
                                     });
                                 });
-                                url = "../control/control.admin.getRoom.php";
-                                $.post(url, {roomid:<?= $_GET['roomid'] ?>}, function (data) {
-                                    var jsonData = jQuery.parseJSON(data);
-                                    $("#title").prepend(jsonData['classRoom']);
-                                });
                             </script>
                         </div>
                     </div>
