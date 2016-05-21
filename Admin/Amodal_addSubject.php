@@ -12,10 +12,19 @@
                             <label>วิชา</label>
                         </div>
                         <div class="form-group col-lg-6"> 
-                            <select id="teacher" class="form-control" name="subjectid">
-                                <option value="1" selected="">00001 WebApp</option>
-                                <option value="2">00002 Analog</option>
-                            </select> 
+                            <select id="subjectid" class="form-control" name="subjectid">                             
+                            </select>
+                            <script>
+                                var url = "../control/control.admin.getSubject.php";
+                                $.post(url, function (data) {
+                                    var obj = jQuery.parseJSON(data);
+                                    //alert(obj);
+                                    for (var key in obj) {
+                                        var select = '<option value="' + obj[key]['idSubject'] + '">' + obj[key]['nameSubject'] + '</option>';
+                                        $("#subjectid").append(select);
+                                    }
+                                });
+                            </script>
                         </div>
                     </div>
                     <div class="col-lg-12">  
@@ -24,9 +33,7 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <select id="teacher2" class="form-control" name="teacherid">
-
                             </select>  
-
                             <script>
                                 var url = "../control/control.admin.getTeacher.php";
                                 $.post(url, function (data) {
@@ -78,19 +85,21 @@
                                                 <td><input type="time" class="form-control" id="endtime"> </td>
                                                 <td>
                                                     <select class="form-control" id="room">
-                                                        <option value="1" selected="">ป.1/1</option>
-                                                        <option value="2">ป.1/2</option>
-                                                        <option value="3">ป.2/1</option>
-                                                        <option value="4">ป.2/2</option>
-                                                        <option value="5">ป.3/1</option>
-                                                        <option value="6">ป.3/2</option>
-                                                        <option value="7">ป.4/1</option>
-                                                        <option value="8">ป.4/2</option>
-                                                        <option value="9">ป.5/1</option>
-                                                        <option value="10">ป.5/2</option>
-                                                        <option value="11">ป.6/1</option>
-                                                        <option value="12">ป.6/2</option>
-                                                    </select>  
+                                                    </select> 
+                                                    <script>
+                                                        var url = "../control/control.admin.getRoom.php";
+                                                        $.post(url, function (data) {
+                                                            var obj = jQuery.parseJSON(data);
+                                                            //alert(obj);
+                                                            for (var key in obj) {
+                                                                var select = '<option value="' + obj[key]['idClass'] + '">' + obj[key]['classRoom'] + '</option>';
+                                                                $("#room").append(select);
+                                                            }
+                                                        });
+                                                    </script>
+
+
+
                                                 </td>
                                                 <td><input type="text" class="form-control" id="location"> </td>
                                                 <td><button type="button" class="btn btn-circle glyphicon-plus" onclick="addItem();"></button></td>
