@@ -23,7 +23,7 @@
                             <select id="teacher" class="form-control" name="nameteacher">
                                 
                             </select>  
-<<<<<<< HEAD
+
                             <script>
                                 $("#teacher");
                                 var url = "../control/control.admin.getTeacher.php";
@@ -36,8 +36,7 @@
                                     }
                                 });
                             </script>
-=======
->>>>>>> origin/master
+
                         </div>
                     </div>                
                 </div>
