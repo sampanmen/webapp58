@@ -23,7 +23,6 @@
                             <input class="form-control" name="namesubject"> 
                         </div>
                     </div>
-                                
                 </div>
             </div>
         </div>

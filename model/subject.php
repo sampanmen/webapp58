@@ -103,6 +103,7 @@ function getAllSubject() {
         return false;
     }
 }
+<<<<<<< HEAD
 
 /**
  * 
@@ -157,6 +158,8 @@ function addSubjectSchedule($idTeaching, $startTime,$endTime,$room,$day) {
     }
 }
 
+=======
+>>>>>>> 9d4e1fac3723848a9030c3dd56da4884b7798525
 /**
  * 
  * @param type $idTeaching from getAllDubjectbyStudent or teacher
