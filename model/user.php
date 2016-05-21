@@ -9,7 +9,7 @@ require_once '../functions/connection.inc.php';
  */
 function getUserByID($idUser) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`idClass` FROM `user` "
+    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`idClass`,username FROM `user` "
             . "WHERE `idUser`=:idUser";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
