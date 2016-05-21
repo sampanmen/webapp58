@@ -32,7 +32,7 @@
                                         var t = "<tr>";
                                         t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
                                         t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewStudent.php?roomid=" + jsonData[key]['idClass'] + "' >detail</a></button></td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewStudent.php?roomid=" + jsonData[key]['idClass'] + "' >รายละเอียด</a></button></td>";
                                         t = t + "</tr>";
 
                                         $("#tbodyRoom").append(t);

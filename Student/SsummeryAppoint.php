@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-SsumAppoint">
                                 <thead>
                                     <tr>
                                         <th class="text-center">No.</th>
@@ -22,7 +22,7 @@
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+<!--                                <tbody>
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td>Project</td>
@@ -32,7 +32,36 @@
                                         <td class="text-center"><label class="label label-warning" href="">Wait</label></td>
                                     </tr>     
                                 </tbody>
+                            </table>-->
+                                <tbody id="tbodysumAppoint">
+
+                                </tbody>
                             </table>
+
+                            <script>
+                                var url = "../control/control.admin.getRoom.php";
+                                $.post(url, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    var i = 1;
+                                    for (var key in jsonData) {
+                                        var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + i + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewStudent.php?roomid=" + jsonData[key]['idClass'] + "' >รายละเอียด</a></button></td>";
+                                        t = t + "</tr>";
+                                        i++;
+                                        $("#tbodysumAppoint").append(t);
+
+                                    }
+                                    //console.log($("#tbody").html());
+                                    $('#dataTables-SsumAppoint').DataTable({
+                                        responsive: true
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
