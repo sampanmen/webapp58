@@ -16,7 +16,7 @@ function getAllSubjectByStudent($idStudent, $term, $year) {
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
-            . "INNER JOIN class c on c.idClass = e.idClass "
+            . "INNER JOIN class c on c.idClass = t.groupLearn "
             . "INNER JOIN user us on us.idClass = c.idClass "
             . "where us.idUser = :idStudent and tm.term=:term and tm.yearTerm =:year";
 
