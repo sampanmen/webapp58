@@ -185,7 +185,7 @@ function addUser($id, $titleName, $name, $surname, $username, $password, $status
 function updateUserInfo($idUser,$titleName,$name,$surname,$position) {
     $conn = dbconnect();
     $SQLCommand = "UPDATE `user` SET `titleName`=:titleName,`name`=:name,`surname`=:surname,"
-            . "`position`=:postion WHERE `idUser`=:idUser";
+            . "`position`=:position WHERE `idUser`=:idUser";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
