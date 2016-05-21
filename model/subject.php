@@ -11,7 +11,7 @@ require_once '../functions/connection.inc.php';
  */
 function getAllSubjectByStudent($idStudent, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
+    $SQLCommand = "SELECT s.*,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
@@ -40,7 +40,7 @@ function getAllSubjectByStudent($idStudent, $term, $year) {
 
 function getAllSubjectByTeacher($idTeacher, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
@@ -66,7 +66,7 @@ function getAllSubjectByTeacher($idTeacher, $term, $year) {
 
 function getAllSubjectByAdmin($term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(t.groupLearn) as groupLearn,tm.yearTerm,tm.term "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(t.groupLearn) as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
