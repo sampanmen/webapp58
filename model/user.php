@@ -239,6 +239,4 @@ function deleteUser($idUser) {
     }
 }
 
-//print_r(getUserByStudentAndClass('2'));
-print_r(getUserStudentByIdClassAndIdStudent('1','5520503061'));
 
