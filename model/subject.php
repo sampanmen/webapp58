@@ -4,59 +4,6 @@ require_once '../functions/connection.inc.php';
 
 /**
  * 
- * @param type $idSubject -> str limit 10
- * @param type $nameSubject -> str limit 150
- * @return false or lastInserID
- */
-function addSubject($idSubject, $nameSubject) {
-    $conn = dbconnect();
-    $SQLCommand = "INSERT INTO `subject`(`idSubject`, `nameSubject`) VALUES (:idSubject,:nameSubject)";
-    $SQLPrepare = $conn->prepare($SQLCommand);
-    $SQLPrepare->execute(
-            array(
-                ":idSubject" => $idSubject,
-                ":nameSubject" => $nameSubject
-            )
-    );
-    if ($SQLPrepare->rowCount() > 0) {
-        return $idSubject;
-    } else {
-        return false;
-    }
-}
-
-/**
- * 
- * @param type $idTeaching -> int
- * @param type $startTime -> time format 'hh:mm:ss'
- * @param type $endTime -> time format 'hh:mm:ss'
- * @param type $room -> str limit 10
- * @param type $day -> str limit 10 (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
- * @return false or lastInserID
- */
-function addSubjectSchedule($idTeaching, $startTime,$endTime,$room,$day) {
-    $conn = dbconnect();
-    $SQLCommand = "INSERT INTO `subject_schedule`(`idSchedule`, `startTimeSche`, `endTimeSche`, `roomSche`, `daySche`, `idTeaching`) "
-            . "VALUES (NULL,:startTime,:endTime,:room,:day,:idTeaching)";
-    $SQLPrepare = $conn->prepare($SQLCommand);
-    $SQLPrepare->execute(
-            array(
-                ":startTime" => $startTime,
-                ":endTime" => $endTime,
-                ":room" => $room,
-                ":day" => $day,
-                ":idTeaching" => $idTeaching
-            )
-    );
-    if ($SQLPrepare->rowCount() > 0) {
-        return $idSchedule = $conn->lastInsertId();
-    } else {
-        return false;
-    }
-}
-
-/**
- * 
  * @param type $idStudent -> str limit 10
  * @param type $term -> tinyint
  * @param type $year -> int
@@ -156,6 +103,60 @@ function getAllSubject() {
         return false;
     }
 }
+
+/**
+ * 
+ * @param type $idSubject -> str limit 10
+ * @param type $nameSubject -> str limit 150
+ * @return false or lastInserID
+ */
+function addSubject($idSubject, $nameSubject) {
+    $conn = dbconnect();
+    $SQLCommand = "INSERT INTO `subject`(`idSubject`, `nameSubject`) VALUES (:idSubject,:nameSubject)";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idSubject" => $idSubject,
+                ":nameSubject" => $nameSubject
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idSubject;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * 
+ * @param type $idTeaching -> int
+ * @param type $startTime -> time format 'hh:mm:ss'
+ * @param type $endTime -> time format 'hh:mm:ss'
+ * @param type $room -> str limit 10
+ * @param type $day -> str limit 10 (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+ * @return false or lastInserID
+ */
+function addSubjectSchedule($idTeaching, $startTime,$endTime,$room,$day) {
+    $conn = dbconnect();
+    $SQLCommand = "INSERT INTO `subject_schedule`(`idSchedule`, `startTimeSche`, `endTimeSche`, `roomSche`, `daySche`, `idTeaching`) "
+            . "VALUES (NULL,:startTime,:endTime,:room,:day,:idTeaching)";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":startTime" => $startTime,
+                ":endTime" => $endTime,
+                ":room" => $room,
+                ":day" => $day,
+                ":idTeaching" => $idTeaching
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idSchedule = $conn->lastInsertId();
+    } else {
+        return false;
+    }
+}
+
 /**
  * 
  * @param type $idTeaching from getAllDubjectbyStudent or teacher

@@ -1,6 +1,39 @@
 <?php
 require_once '../functions/connection.inc.php';
 
+function getAllTerm() {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT * FROM `term`";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute();
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+function getCurrentTerm($dateToday) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT s.nameSubject,ut.";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idStudent" => $dateToday
+            )
+    );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
 /**
  * 
  * @param type $term -> tinyint
@@ -45,18 +78,4 @@ function deleteTerm($idTerm) {
     }
 }
 
-function getAllTerm() {
-    $conn = dbconnect();
-    $SQLCommand = "SELECT * FROM `term`";
-
-    $SQLPrepare = $conn->prepare($SQLCommand);
-    $SQLPrepare->execute();
-
-    if ($SQLPrepare->rowCount() > 0) {
-        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    } else {
-        return false;
-    }
-}
 
