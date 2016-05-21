@@ -124,6 +124,8 @@ function getAllSubject() {
         return false;
     }
 }
+
+
 /**
  * 
  * @param type $idSubject -> str limit 10
@@ -195,9 +197,9 @@ function getSubjectAllSubjectAndSchedule($idTeacher) {
         return false;
     }
 }
-echo '<pre>';
-print_r(getSubjectAllSubjectAndSchedule('E9044'));
-echo '</pre>';
+//echo '<pre>';
+//print_r(getSubjectAllSubjectAndSchedule('E9044'));
+//echo '</pre>';
 /**
  * 
  * @param type $idSubject -> str limit 10
