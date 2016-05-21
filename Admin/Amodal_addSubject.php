@@ -109,11 +109,11 @@
                                                 var location = $("#location").val();
 
                                                 var ItemHTML = '<tr id="trItem_' + itemNo + '">' +
-                                                        '<td>' + date + '<input type="hidden" name="item_name[]" value="' + date + '"></td>' +
-                                                        '<td>' + startime + '<input type="hidden" name="item_name[]" value="' + startime + '"></td>' +
-                                                        '<td>' + endtime + '<input type="hidden" name="item_brand[]" value="' + endtime + '"></td>' +
-                                                        '<td>' + room + '<input type="hidden" name="item_model[]" value="' + room + '"></td>' +
-                                                        '<td>' + location + '<input type="hidden" name="item_serialno[]" value="' + location + '"></td>' +
+                                                        '<td>' + date + '<input type="hidden" name="date[]" value="' + date + '"></td>' +
+                                                        '<td>' + startime + '<input type="hidden" name="startime[]" value="' + startime + '"></td>' +
+                                                        '<td>' + endtime + '<input type="hidden" name="endtime[]" value="' + endtime + '"></td>' +
+                                                        '<td>' + room + '<input type="hidden" name="room[]" value="' + room + '"></td>' +
+                                                        '<td>' + location + '<input type="hidden" name="location[]" value="' + location + '"></td>' +
                                                         '<td><button type="button" class="btn btn-danger btn-circle" onclick="removeItem(\'trItem_' + itemNo + '\')"><i class="glyphicon-minus""></i></button></td>' +
                                                         '</tr>';
                                                 $("#tbItem").append(ItemHTML);
@@ -139,11 +139,10 @@
         </div>
     </div>
     <div class="modal-footer">
+        <input type="hidden" name="term" value="<?= $_GET['term'] ?>">
+        <input type="hidden" name="year" value="<?= $_GET['year'] ?>">
+        <input type="hidden" name="termid" value="<?= $_GET['termid'] ?>">
         <button type="submit" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div>
 </form>
-
-
-
-
