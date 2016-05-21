@@ -1,6 +1,6 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" id="gridSystemModalLabel">New Subject IN Term</h4>
+    <h4 class="modal-title" id="gridSystemModalLabel">02204445</h4>
 </div>
 
 <div class="modal-body">
@@ -47,11 +47,11 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Start-Time</th>
-                                    <th>End-Time</th>
-                                    <th>Year/Room</th>
-                                    <th>Status</th>
+                                    <th>วันที่สอน</th>
+                                    <th>เวลาเริ่มสอน</th>
+                                    <th>เวลาเลิกสอน</th>
+                                    <th>ห้องที่สอน</th>
+                                    <th>สถานะ</th>
                                     <th></th>
                                 </tr>
                             </thead>
