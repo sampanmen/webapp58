@@ -20,7 +20,7 @@
                             <label>อาจารย์ประจำชั้น</label>
                         </div>
                         <div class="form-group col-lg-6">
-                            <select id="teacher" class="form-control" name="nameteacher">
+                            <select id="teacher" class="form-control" name="teacherid">
                                 
                             </select>  
 
@@ -31,7 +31,7 @@
                                     var obj = jQuery.parseJSON(data);
                                     //alert(obj);
                                     for (var key in obj) {
-                                        var select = '<option value="' + obj[key]['iduser'] + '">' + obj[key]['name'] + '</option>';
+                                        var select = '<option value="' + obj[key]['iduser'] + '">' + obj[key]['name'] + obj[key]['surname'] +obj[key]['status'] +obj[key]['position'] +obj[key]['permisstion'] +obj[key]['classRoom'] +obj[key]['Advisors']'</option>';
                                         $("#teacher").append(select);
                                     }
                                 });
