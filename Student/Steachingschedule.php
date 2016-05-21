@@ -26,24 +26,65 @@
                     <thead>
                         <tr>
                             <th>วัน</th>
-                            <th colspan="2">08:00-09:00</th>        
-                            <th colspan="2">09:00-10:00</th>
-                            <th colspan="2">10:00-11:00</th>
-                            <th colspan="2">11:00-12:00</th>
-                            <th colspan="2">12:00-13:00</th>
-                            <th colspan="2">13:00-14:00</th>
-                            <th colspan="2">14:00-15:00</th>
-                            <th colspan="2">15:00-16:00</th>
-                            <th colspan="2">16:00-17:00</th>
+                            <th class='text-center' colspan="2">08:00-09:00</th>        
+                            <th class='text-center'  colspan="2">09:00-10:00</th>
+                            <th class='text-center'  colspan="2">10:00-11:00</th>
+                            <th class='text-center'  colspan="2">11:00-12:00</th>
+                            <th class='text-center'  colspan="2">12:00-13:00</th>
+                            <th class='text-center'  colspan="2">13:00-14:00</th>
+                            <th class='text-center'  colspan="2">14:00-15:00</th>
+                            <th class='text-center' colspan="2">15:00-16:00</th>
+                            <th class='text-center' colspan="2">16:00-17:00</th>
                         </tr>
                     </thead>
                     <tbody id='detailSchedule'>
 
                     </tbody>
                 </table>
+                <div class="col-lg-12">
+                    <h1 class="page-header">การนัดหมายที่อนุมัติแล้ว </h1>
+                </div>
+                <table class="table table-striped table-bordered table-hover" id="dataTables-Steachingschedule">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ลำดับที่</th>
+                                        <th>ชื่อ</th>
+                                        <th>นามสกุล</th>
+                                        <th>วัน</th>
+                                        <th>เวลา</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbodySschedule">
+
+                                </tbody>
+                            </table>
+                            <script>
+                                var url = "../control/control.admin.getSubject.php?studentid=<?= $_SESSION['idUser'] ?>";
+                                $.post(url, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    var i = 1;
+                                    for (var key in jsonData) {
+                                        var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + i + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['idSubject'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php?subjectid=" + jsonData[key]['idSubject'] +"&userid="+ jsonData[key]['idUser']+ "' >รายละเอียด</a></button></td>";
+                                        t = t + "</tr>";
+                                        i++;
+                                        $("#tbodySschedule").append(t);
+
+                                    }
+                                    //console.log($("#tbody").html());
+                                    $('#dataTables-Steachingschedule').DataTable({
+                                        responsive: true
+                                    });
+                                });
+                            </script>
                 <script>
-                    var url = "../control/control.student.getSchedule.php?teacherid=<?= $_SESSION['idUser'] ?>";
-                    
+                    var url = "../control/control.student.getSchedule.php?teacherid=<?= $_GET['userid'] ?>";
+
                     $.post(url, function (data) {
                         var jsonData = jQuery.parseJSON(data);
                         var days = ['วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์'];
@@ -110,212 +151,8 @@
 
                             // }
                         }
-
-                        //console.log($("#tbody").html());
-//                        $('#dataTables-Appoin').DataTable({
-//                            responsive: true
-//                        });
                     });
                 </script>
-<!--                    <tbody>
-<tr>
-    <td>Monday</td>
-    <td class=" no-events" rowspan="1"></td>
-    <td class=" no-events" rowspan="1"></td>
-    <td class=" has-events" colspan="6">
-        <div class="row-fluid lecture" style="width: 99%; height: 100%;">
-            <span class="title">Combinatorics</span> <span class="lecturer"><a>Prof.
-                    Someone</a></span> <span class="location">23/111</span>
-        </div>
-    </td>
-
-
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" has-events conflicts " colspan="6">
-
-        <div class="row-fluid practice" style="width: 99%; height: 100%;">
-
-
-            <span class="title">02204342</span> 
-            <span class="lecturer"><a>Web app</a></span>
-            <span class="location">E8301</span>
-        </div>
-
-    </td>
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-
-
-
-
-</tr>
-<tr>
-    <td>Tuesday</td>
-
-    <td class=" no-events" rowspan="1"></td>
-    <td class=" no-events" rowspan="1"></td>
-
-
-    <td class=" has-events" colspan="6">
-
-        <div class="row-fluid lecture" style="width: 99%; height: 100%;">
-
-
-            <span class="title">Combinatorics</span> <span class="lecturer"><a>Prof.
-                    Someone</a></span> <span class="location">23/111</span>
-        </div>
-    </td>
-
-
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" has-events conflicts " colspan="6">
-
-        <div class="row-fluid practice" style="width: 99%; height: 100%;">
-
-
-            <span class="title">02204342</span> 
-            <span class="lecturer"><a>Web app</a></span>
-            <span class="location">E8301</span>
-        </div>
-
-    </td>
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-
-</tr>
-<tr>
-    <td>Wednesday</td>
-
-    <td class=" no-events" rowspan="1"></td>
-    <td class=" no-events" rowspan="1"></td>
-
-
-    <td class=" has-events" colspan="6">
-
-        <div class="row-fluid lecture" style="width: 99%; height: 100%;">
-
-
-            <span class="title">Combinatorics</span> <span class="lecturer"><a>Prof.
-                    Someone</a></span> <span class="location">23/111</span>
-        </div>
-    </td>
-
-
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" has-events conflicts " colspan="6">
-
-        <div class="row-fluid practice" style="width: 99%; height: 100%;">
-
-
-            <span class="title">02204342</span> 
-            <span class="lecturer"><a>Web app</a></span>
-            <span class="location">E8301</span>
-        </div>
-
-    </td>
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-
-</tr>
-<tr>
-    <td>Thursday</td>
-
-    <td class=" no-events" rowspan="1"></td>
-    <td class=" no-events" rowspan="1"></td>
-
-
-    <td class=" has-events" colspan="6">
-
-        <div class="row-fluid lecture" style="width: 99%; height: 100%;">
-
-
-            <span class="title">Combinatorics</span> <span class="lecturer"><a>Prof.
-                    Someone</a></span> <span class="location">23/111</span>
-        </div>
-    </td>
-
-
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" has-events conflicts " colspan="6">
-
-        <div class="row-fluid practice" style="width: 99%; height: 100%;">
-
-
-            <span class="title">02204342</span> 
-            <span class="lecturer"><a>Web app</a></span>
-            <span class="location">E8301</span>
-        </div>
-
-    </td>
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-</tr>
-<tr>
-    <td>Friday</td>
-
-    <td class=" no-events" rowspan="1"></td>
-    <td class=" no-events" rowspan="1"></td>
-
-
-    <td class=" has-events" colspan="6">
-
-        <div class="row-fluid lecture" style="width: 99%; height: 100%;">
-
-
-            <span class="title">Combinatorics</span> <span class="lecturer"><a>Prof.
-                    Someone</a></span> <span class="location">23/111</span>
-        </div>
-    </td>
-
-
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" has-events conflicts " colspan="6">
-
-        <div class="row-fluid practice" style="width: 99%; height: 100%;">
-
-
-            <span class="title">02204342</span> 
-            <span class="lecturer"><a>Web app</a></span>
-            <span class="location">E8301</span>
-        </div>
-
-    </td>
-    <td class=" no-events" rowspan="1"></td>
-
-    <td class=" no-events" rowspan="1"></td>
-
-
-</tr>
-
-</tbody>-->
 
             </div>
         </div>
