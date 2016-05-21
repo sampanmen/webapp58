@@ -23,6 +23,22 @@
                             <input class="form-control" name="term"> 
                         </div>
                     </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>เริ่มภาคการศึกษา</label>
+                        </div>
+                        <div class="form-group col-lg-6"> 
+                            <input class="form-control" type="date" name="starttimeterm"> 
+                        </div>
+                    </div>
+                    <div class="col-lg-12">  
+                        <div class="col-lg-6">                                           
+                            <label>จบภาคการศึกษา</label>
+                        </div>
+                        <div class="form-group col-lg-6"> 
+                            <input class="form-control" type="date" name="endtimeterm"> 
+                        </div>
+                    </div>
                                 
                 </div>
             </div>
