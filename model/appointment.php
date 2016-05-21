@@ -1,5 +1,42 @@
 <?php
 require_once '../functions/connection.inc.php';
+
+/**
+ * 
+ * @param type $idSubject -> str limit 10
+ * @param type $teaching -> int 
+ * @param type $term -> tiny int 
+ * @param type $yearTerm -> int
+ * @return boolean
+ */
+function getAppointmentByStudentOnlyApprove($idSubject, $term, $yearTerm) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT ap.*,ut.titleName "
+            . "FROM teaching t "
+            . "INNER JOIN class c on c.idClass =t.groupLearn "
+            . "INNER JOIN user us on us.idClass = c.idClass "
+            . "INNER JOIN appointment ap on ap.idUserStudent = us.idUser "
+            . "INNER JOIN user ut on ut.idUser = ap.idUserTeacher "
+            . "INNER JOIN term tm on tm.idTerm =t.idTerm "
+            . "WHERE  us.idUser=:idStudent and t.t "
+            . "AND ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE  "
+            . "group by ap.idAppointment";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idStudent" => $idStudent,
+                
+            ));
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+
 /**
  * 
  * @param type $idUserTeacher -> str limit 10
@@ -34,12 +71,17 @@ function getAppointmentByTeacher($idUserTeacher) {
 function getConcludeAppointmentByStudent($idStudent) {
     $conn = dbconnect();
     $SQLCommand = "SELECT ap.*,ut.titleName as titleNameTeacher,ut.name nameTeacher,ut.surname surnameTeacher,"
-            . "us.titleName titleNameStudent,us.name nameStudent,us.surname surnameStudent "
-            . "FROM appointment ap "
-            . "INNER JOIN user us on us.idUser = ap.idUserStudent "
-            . "INNER JOIN user ut on ut.idUser =ap.idUserTeacher "
+            . "us.titleName titleNameStudent,us.name nameStudent,us.surname surnameStudent  "
+            . "FROM teaching t  "
+            . "INNER JOIN class c on c.idClass =t.groupLearn "
+            . "INNER JOIN user us on us.idClass = c.idClass "
+            . "INNER JOIN appointment ap on ap.idUserStudent = us.idUser "
+            . "INNER JOIN user ut on ut.idUser = ap.idUserTeacher "
+            . "INNER JOIN term tm on tm.idTerm =t.idTerm "
+            . "INNER JOIN subject s on s.idSubject = t.idSubject "
             . "WHERE ap.idUserStudent = :idStudent  "
-            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE";
+            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE "
+            . "group by ap.idAppointment";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(array(":idStudent" => $idStudent) );
@@ -51,6 +93,9 @@ function getConcludeAppointmentByStudent($idStudent) {
         return false;
     }
 }
+echo '<pre>';
+print_r(getConcludeAppointmentByStudent('777'));
+echo '</pre>';
 /**
  * 
  * @param type $idTeacher -> str limit 10
@@ -112,11 +157,11 @@ function getAppointmentByIdAppointment($idAppointment) {
  * @param type $topicApp -> str limit 45 
  * @return false or lastInserID 
  */
-function addAppointment($startDateTime,$endDateTime,$detail,$idUserTeacher,$idUserStudent,$topicApp) {
+function addAppointment($startDateTime,$endDateTime,$detail,$idUserTeacher,$idUserStudent,$topicApp,$idTeaching) {
     $conn = dbconnect();
     $SQLCommand = "INSERT INTO `appointment`(`idAppointment`, `statusApp`, `startDateTimeApp`, `endDateTimeApp`,"
-            . " `detailApp`, `idUserTeacher`, `idUserStudent`, `topicApp`) "
-            . "VALUES (NULL,'รออนุมัติ',:startDateTime,:endDateTime,:detail,:idUserTeacher,:idUserStudent,:topicApp)";
+            . " `detailApp`, `idUserTeacher`, `idUserStudent`, `topicApp`,`idTeaching`) "
+            . "VALUES (NULL,'รออนุมัติ',:startDateTime,:endDateTime,:detail,:idUserTeacher,:idUserStudent,:topicApp,:idTeaching)";
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
             array(
@@ -125,7 +170,8 @@ function addAppointment($startDateTime,$endDateTime,$detail,$idUserTeacher,$idUs
                 ":detail" => $detail,
                 ":idUserTeacher" => $idUserTeacher,
                 ":idUserStudent" => $idUserStudent,
-                ":topicApp" => $topicApp
+                ":topicApp" => $topicApp,
+                ":idTeaching" => $idTeaching
             )
     );
     if ($SQLPrepare->rowCount() > 0) {
