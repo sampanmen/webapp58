@@ -52,7 +52,7 @@ function getUserByPermission($permission) {
  */
 function getUserStudentByIdClass($idClass) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom "
+    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom,username "
             . "FROM `user` "
             . "inner JOIN class c on c.idClass = user.idClass  "
             . "where c.idclass =:idClass ";
@@ -74,7 +74,7 @@ function getUserStudentByIdClass($idClass) {
 
 function getUserStudentByIdClassAndIdStudent($idClass,$idStudent) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom "
+    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom,username "
             . "FROM `user` "
             . "inner JOIN class c on c.idClass = user.idClass  "
             . "where c.idclass =:idClass and user.idUser =:idUser " ;
@@ -238,5 +238,4 @@ function deleteUser($idUser) {
         return false;
     }
 }
-
 
