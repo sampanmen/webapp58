@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-               <h1 class="page-header">All Teacher <button class="btn btn-circle glyphicon-plus" href="Amodal_addTeacher.php" data-toggle="modal" data-target="#myModal"></button></h1>
+               <h1 class="page-header">ผู้สอน<button class="btn btn-circle glyphicon-plus" href="Amodal_addTeacher.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -14,13 +14,12 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No.</th>
-                                        <th>ID Teacher</th>
-                                        <th>Title Name</th>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Position</th>
-                                        <th>Status</th>
+                                        <th class="text-center">ลำดับที่</th>
+                                        <th>รหัสประจำตัว</th>
+                                        <th>ชื่อ</th>
+                                        <th>นามสกุล</th>
+                                        <th>ตำแหน่ง</th>
+                                        <th>สถานะ</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -28,8 +27,7 @@
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td>000001</td>
-                                         <td>Miss</td>
-                                        <td>Nutchanart</td>
+                                        <td>Miss. Nutchanart</td>
                                         <td>Sattayakawee</td>
                                         <td>Teacher</td>
                                         <td class="text-center"><label class="label label-success" href="">work</label></td>

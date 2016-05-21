@@ -11,18 +11,18 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-SallSubject">
                                 <thead>
                                     <tr>
                                         <th class="text-center">ลำดับที่</th>
-                                        <th>ID Subject</th>
-                                        <th>Subject Name</th>
-                                        <th>Teacher</th>
-                                        <th>Status</th>
-                                        <th>Appointment</th>
+                                        <th>รหัสวิชา</th>
+                                        <th>ชื่อวิชา</th>
+                                        <th>ครูผู้สอน</th>
+                                        <th>สถานะ</th>
+                                        <th>การนัดหมาย</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+<!--                                <tbody>
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td>02204445</td>
@@ -32,15 +32,45 @@
                                         <td><input class="btn btn-default" type="button" value="Appointment" onclick="window.location.href = '../Student/Steachingschedule.php'"></td>
                                     </tr>     
                                 </tbody>
+                            </table>-->
+
+                                <tbody id="tbodySubject">
+
+                                </tbody>
                             </table>
+
+                            <script>
+                                var url = "../control/control.admin.getRoom.php";
+                                $.post(url, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    var i=1;
+                                    for (var key in jsonData) {
+                                        var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + i + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewStudent.php?roomid=" + jsonData[key]['idClass'] + "' >detail</a></button></td>";
+                                        t = t + "</tr>";
+                                        i++;
+                                        $("#tbodySubject").append(t);
+                                        
+                                    }
+                                    //console.log($("#tbody").html());
+                                    $('#dataTables-SallSubject').DataTable({
+                                        responsive: true
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div
+    </div>
 </div>
-</div>
+
 
 
 
