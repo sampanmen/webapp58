@@ -27,3 +27,19 @@ function addEnrollment($enrollDate,$idUserStudent,$idClass) {
     }
 
 }
+
+function deleteAppointment($idEnrollment) {
+    $conn = dbconnect();
+    $SQLCommand = "DELETE FROM `enrollment` WHERE `idEnrollment`=:idEnrollment";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idEnrollment" => $idEnrollment
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idEnrollment;
+    } else {
+        return false;
+    }  
+}

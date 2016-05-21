@@ -24,10 +24,11 @@ function getUserByID($idUser) {
 
 function getUserByPermission($permission) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom,ct.classRoom as Advisors FROM `user` "
+    $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom,GROUP_CONCAT(ct.classRoom) as Advisors FROM `user` "
             . "LEFT JOIN class c on c.idClass = user.idClass "
             . "LEFT JOIN class ct on ct.idUserTeacher = user.idUser "
-            . "WHERE `permission`=:permission";
+            . "WHERE `permission`=:permission "
+            . "Group by user.idUser ";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -124,6 +125,7 @@ function updateUserInfo($idUser,$titleName,$name,$surname,$position) {
         return false;
     }
 }
+
 /**
  * 
  * @param type $username -> str limit 20
@@ -187,3 +189,4 @@ function deleteUser($idUser) {
     }
 }
 
+print_r(getUserByPermission("teacher"));

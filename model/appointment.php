@@ -31,3 +31,39 @@ function addAppointment($startDateTime,$endDateTime,$detail,$idUserTeacher,$idUs
         return false;
     }
 }
+
+function updateStatus($idAppointment,$statusApp) {
+    $conn = dbconnect();
+    $SQLCommand = "UPDATE `appointment` SET `statusApp`=:statusApp WHERE `idAppointment`=:idAppointment ";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":statusApp" => $statusApp,
+                ":idAppointment" => $idAppointment
+            )
+    );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idAppointment;
+    } else {
+        return false;
+    }
+}
+
+function deleteAppointment($idAppointment) {
+    $conn = dbconnect();
+    $SQLCommand = "DELETE FROM `appointment` WHERE `idAppointment`=:idAppointment";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idAppointment" => $idAppointment
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idAppointment;
+    } else {
+        return false;
+    }
+}
+

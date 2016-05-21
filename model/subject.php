@@ -73,7 +73,7 @@ function getAllSubjectbyStudent($idStudent) {
     );
 
     if ($SQLPrepare->rowCount() > 0) {
-        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
         return $result;
     } else {
         return false;
@@ -95,12 +95,13 @@ function getAllSubjectbyTeacher($idTeacher) {
     );
 
     if ($SQLPrepare->rowCount() > 0) {
-        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
         return $result;
     } else {
         return false;
     }
 }
+
 
 /**
  * 
@@ -122,7 +123,7 @@ function getSubjectScheduleByIdTeaching($idTeaching) {
     );
 
     if ($SQLPrepare->rowCount() > 0) {
-        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
         return $result;
     } else {
         return false;

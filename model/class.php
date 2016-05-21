@@ -1,6 +1,37 @@
 <?php
 require_once '../functions/connection.inc.php';
 
+function getClassByIdClass($idClass) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT * FROM `class` where `idClass`=:idClass";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+             ":idClass" => $idClass   
+            ));
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+function getClasses() {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT * FROM `class` ";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute();
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
 /**
  * 
  * @param type $classRoom -> str limit 20
@@ -24,3 +55,21 @@ function addClass($classRoom,$idUserTeacher) {
         return false;
     }
 }
+
+function deleteClass($idClass) {
+    $conn = dbconnect();
+    $SQLCommand = "DELETE FROM `class` WHERE `idClass`=:idClass";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idClass" => $idClass
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idClass;
+    } else {
+        return false;
+    }
+}
+
+print_r(getClasses());
