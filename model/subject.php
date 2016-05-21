@@ -124,7 +124,39 @@ function getAllSubject() {
         return false;
     }
 }
+/**
+ * 
+ * @param type $idSubject -> str limi 10
+ * @param type $term -> tiny int
+ * @param type $yearTerm -> int
+ * @return false or result
+ */
+function getSubjecScheduleByIdSubjectAndTerm($idSubject, $term, $yearTerm) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT ss.*,t.groupLearn "
+            . "FROM subject s "
+            . "INNER JOIN teaching t on t.idSubject = s.idSubject "
+            . "INNER JOIN subject_schedule ss on ss.idTeaching = t.idTeaching "
+            . "INNER JOIN term tm ON tm.idTerm =t.idTerm "
+            . "INNER JOIN class c ON c.idClass = t.groupLearn "
+            . "WHERE s.idSubject =:idSubject and tm.term =:term AND tm.yearTerm =:yearTerm";
 
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idSubject" => $idSubject,
+                ":term" => $term,
+                ":yearTerm" => $yearTerm
+            )
+    );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
 
 /**
  * 
@@ -197,9 +229,7 @@ function getSubjectAllSubjectAndSchedule($idTeacher) {
         return false;
     }
 }
-//echo '<pre>';
-//print_r(getSubjectAllSubjectAndSchedule('E9044'));
-//echo '</pre>';
+
 /**
  * 
  * @param type $idSubject -> str limit 10
