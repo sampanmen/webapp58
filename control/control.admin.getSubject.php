@@ -16,12 +16,18 @@ $getIdStudent = isset($_REQUEST['studentid']) ? $_REQUEST['studentid'] : "";
 $getIdTeacher = isset($_REQUEST['teacherid']) ? $_REQUEST['teacherid'] : "";
 
 $getTermDB = getCurrentTerm();
-$getTerm = isset($_REQUEST['term']) ? $_REQUEST['term'] : $getTermDB['term'];
-$getYear = isset($_REQUEST['year']) ? $_REQUEST['year'] : $getTermDB['yearTerm'];
+
+$getTerm = isset($_REQUEST['term']) ? $_REQUEST['term'] : "";
+$getYear = isset($_REQUEST['year']) ? $_REQUEST['year'] : "";
 
 if ($getIdStudent != "") {
+    $getTerm = $getTerm == "" ? $getTerm : $getTermDB['term'];
+    $getYear = $getYear == "" ? $getYear : $getTermDB['yearTerm'];
+
     $getSubject = getAllSubjectByStudent($getIdStudent, $getTerm, $getYear);
 } else if ($getIdTeacher != "") {
+    $getTerm = $getTerm == "" ? $getTerm : $getTermDB['term'];
+    $getYear = $getYear == "" ? $getYear : $getTermDB['yearTerm'];
     $getSubject = getAllSubjectByTeacher($getIdTeacher, $getTerm, $getYear);
 } else if ($getSubjectID != "") {
     $getSubject = getSubjectByIdSubject($getSubjectID);
