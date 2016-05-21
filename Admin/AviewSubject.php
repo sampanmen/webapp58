@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">วิชาที่เปิด เทอม <?= $_GET['term'] ?> ปี <?= $_GET['year'] ?>  <button class="btn btn-circle glyphicon-plus" href="Amodal_addSubject.php?termid=<?= $_GET['idTerm'] ?>" data-toggle="modal" data-target="#myModal1-lg"></button></h1>
+                <h1 class="page-header">วิชาที่เปิด เทอม <?= $_GET['term'] ?> ปี <?= $_GET['year'] ?>  <button class="btn btn-circle glyphicon-plus" href="Amodal_addSubject.php?termid=<?= $_GET['termid'] ?>&term=<?= $_GET['term'] ?>&year=<?= $_GET['year'] ?>" data-toggle="modal" data-target="#myModal1-lg"></button></h1>
             </div>
         </div>
         <div class="row">
