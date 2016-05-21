@@ -19,14 +19,29 @@
                                         <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2559</td>
-                                        <td>1</td>
-                                        <td><button class="btn btn-default"><a href="AviewSubject.php" >Detail</a></button>
-                                    </tr>     
+                                <tbody id="tbodyRoom">
+
                                 </tbody>
                             </table>
+
+                            <script>
+                                var url = "../control/control.admin.getTerm.php";
+                                $.post(url, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    for (var key in jsonData) {
+                                        var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewSubject.php?term=" + jsonData[key]['idClass'] + "' >รายละเอียด</a></button></td>";
+                                        t = t + "</tr>";
+                                        $("#tbodyRoom").append(t);
+                                    }
+                                    //console.log($("#tbody").html());
+                                    $('#dataTables-ARoom').DataTable({
+                                        responsive: true
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
