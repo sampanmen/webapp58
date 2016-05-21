@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Summery Appoint For Teacher</h1>
+                <h1 class="page-header">สรุปผลการนัดหมาย </h1>
             </div>
         </div>
         <div class="row">
@@ -14,13 +14,13 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No.</th>
-                                        <th>Subject</th>
-                                        <th>Name-Surname</th>\
-                                        <th>Year/Room</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Status</th>
+                                        <th class="text-center">ลำดับที่</th>
+                                        <th>วิชา</th>
+                                        <th>ชื่อ-นามสกุล</th>\
+                                        <th>ชั้น/ปี</th>
+                                        <th>วันที่</th>
+                                        <th>เวลา</th>
+                                        <th>สถานะ</th>
                                         
                                     </tr>
                                 </thead>
