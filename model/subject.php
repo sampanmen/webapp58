@@ -15,7 +15,6 @@ function getAllSubjectByStudent($idStudent, $term, $year) {
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
-            . "INNER JOIN enrollment e on e.idTeaching = t.idTeaching "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
             . "INNER JOIN class c on c.idClass = e.idClass "
             . "INNER JOIN user us on us.idClass = c.idClass "
@@ -215,7 +214,11 @@ function getSubjectScheduleByIdTeaching($idTeaching) {
         return false;
     }
 }
-
+/**
+ * 
+ * @param type $idSubject -> int
+ * @return false or idSubject
+ */
 function deleteSubject($idSubject) {
     $conn = dbconnect();
     $SQLCommand = "DELETE FROM `subject` WHERE `idSubject`=:idSubject";
@@ -231,7 +234,11 @@ function deleteSubject($idSubject) {
         return false;
     }
 }
-
+/**
+ * 
+ * @param type $idSchedule -> int
+ * @return false or idSchedule
+ */ 
 function deleteSubjectSchedule($idSchedule) {
     $conn = dbconnect();
     $SQLCommand = "DELETE FROM `subject_schedule` WHERE `idSchedule`=:idSchedule";
