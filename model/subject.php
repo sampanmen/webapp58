@@ -142,6 +142,20 @@ function getAllSubjectByAdmin($term, $year) {
     }
 }
 
+function getAllSubject() {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT * FROM subject  ";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute();
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
 /**
  * 
  * @param type $idTeaching from getAllDubjectbyStudent or teacher
