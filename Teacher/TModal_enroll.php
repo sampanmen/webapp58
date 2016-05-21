@@ -10,25 +10,21 @@
                 <table class="table table-striped table-bordered table-hover" id="dataTables">
                     <thead>
                         <tr>
-                            <th class="text-center"><input type="checkbox"></th>
-                            <th>ID Student</th>
-                            <th>Name</th>
-                            <th>Sername</th>
+                            <th></th>
+                            <th>ห้องเรียน</th>
+                            <th>อาจารย์ที่ปรึกษา</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="text-center"><input type="checkbox"></td>
-                            <td>5520502978</td>
-                            <td>ธิดารัตน์</td>
-                            <td>ช้างแก้ว</td>
-
+                            <td>6/3 fix</td>
+                            <td>ผศ.นุชนาฎ สัตยากวี fix</td>
                         </tr>                                                     
                         <tr>
                             <td class="text-center"><input type="checkbox"></td>
-                            <td>5520503036</td>
-                            <td>ประภาพร</td>
-                            <td>เพียรวิมังสา</td>
+                            <td>6/5 fix</td>
+                            <td>อ.ดร กายรัฐ เจริญราฎร์ fix</td>
                         </tr> 
                     </tbody>
                 </table>

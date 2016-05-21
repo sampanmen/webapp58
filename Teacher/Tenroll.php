@@ -20,8 +20,6 @@
                                         <th class="text-center">ลำดับ</th>
                                         <th class="text-center">รหัสประจำวิชา</th>
                                         <th>วิชา</th>
-                                        <th>Year/Room</th>
-                                        <th>Enroll/All</th>
                                         <th>Enroll</th>
                                     </tr>
                                 </thead>
@@ -30,8 +28,6 @@
                                         <td class="text-center">1</td>
                                         <td>02204445</td>
                                         <td>Webapp</td>
-                                        <td>6/3</td>
-                                        <td><a href="">25</a>/<a href="">50</a></td>
                                         <td><button href="TModal_enroll.php" data-toggle="modal" data-target="#myModal">Enroll</button></td>
                                     </tr>     
                                 </tbody>
