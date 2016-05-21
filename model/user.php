@@ -2,6 +2,11 @@
 
 require_once '../functions/connection.inc.php';
 
+/**
+ * 
+ * @param type $idUser -> str limit 10
+ * @return false or result
+ */
 function getUserByID($idUser) {
     $conn = dbconnect();
     $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`idClass` FROM `user` "
@@ -22,6 +27,11 @@ function getUserByID($idUser) {
     }
 }
 
+/**
+ * 
+ * @param type $permission -> str limit 20
+ * @return false or result
+ */
 function getUserByPermission($permission) {
     $conn = dbconnect();
     $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom,GROUP_CONCAT(ct.classRoom) as Advisors FROM `user` "
@@ -72,6 +82,12 @@ function getUserStudentByIdClass($idClass) {
     }
 }
 
+/**
+ * 
+ * @param type $idClass -> int
+ * @param type $idStudent -> str limit 10
+ * @return false or result
+ */
 function getUserStudentByIdClassAndIdStudent($idClass,$idStudent) {
     $conn = dbconnect();
     $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,`permission`,c.classRoom,username "
@@ -95,6 +111,10 @@ function getUserStudentByIdClassAndIdStudent($idClass,$idStudent) {
     }
 }
 
+/**
+ * 
+ * @return false or result
+ */
 function getUsers(){
     $conn = dbconnect();
     $SQLCommand = "SELECT `idUser`,`titleName`,`name`,`surname`,`status`,`position`,c.`idClass`,c.classRoom "
@@ -153,9 +173,18 @@ function addUser($id, $titleName, $name, $surname, $username, $password, $status
     }
 }
 
+/**
+ * 
+ * @param type $idUser -> str limit 10
+ * @param type $titleName -> str limit 10
+ * @param type $name -> str limit 45
+ * @param type $surname -> str limit 45
+ * @param type $position -> str limit 45
+ * @return false or idUser
+ */
 function updateUserInfo($idUser,$titleName,$name,$surname,$position) {
     $conn = dbconnect();
-    $SQLCommand = "UPDATE `user` SET `titleName`=;titleName,`name`=:name,`surname`=:surname,"
+    $SQLCommand = "UPDATE `user` SET `titleName`=:titleName,`name`=:name,`surname`=:surname,"
             . "`position`=:postionWHERE `idUser`=:idUser";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
@@ -199,6 +228,12 @@ function checkoldPassword($username,$oldPass) {
     }
 }
 
+/**
+ * 
+ * @param type $username -> str limit 20
+ * @param type $newPassword -> str limit 45
+ * @return boolean
+ */
 function updateUserPassword($username,$newPassword){
     $conn = dbconnect();
     $SQLCommand = "UPDATE `user` SET `password`=:password WHERE `username`=:username";

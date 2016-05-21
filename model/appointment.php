@@ -60,6 +60,12 @@ function addAppointment($startDateTime,$endDateTime,$detail,$idUserTeacher,$idUs
     }
 }
 
+/**
+ * Update Appointment by approve status
+ * @param type $idAppointment -> 
+ * @param type $statusApp
+ * @return boolean
+ */
 function updateStatus($idAppointment,$statusApp) {
     $conn = dbconnect();
     $SQLCommand = "UPDATE `appointment` SET `statusApp`=:statusApp WHERE `idAppointment`=:idAppointment ";

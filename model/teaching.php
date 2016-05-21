@@ -28,7 +28,11 @@ function addTeaching($idSubject,$idUserTeacher,$idTerm,$groupLearn) {
         return false;
     }
 }
-
+/**
+ * 
+ * @param type $idTeaching -> int
+ * @return false or idTeaching
+ */
 function deleteTeaching($idTeaching) {
     $conn = dbconnect();
     $SQLCommand = "DELETE FROM `teaching` WHERE `idTeaching`=:idTeaching";

@@ -1,6 +1,10 @@
 <?php
 require_once '../functions/connection.inc.php';
 
+/**
+ * 
+ * @return false or result
+ */
 function getAllTerm() {
     $conn = dbconnect();
     $SQLCommand = "SELECT * FROM `term`";
@@ -16,6 +20,10 @@ function getAllTerm() {
     }
 }
 
+/**
+ * Get current term data
+ * @return false or result
+ */
 function getCurrentTerm() {
     $conn = dbconnect();
     $SQLCommand = "SELECT * FROM `term` "
@@ -60,6 +68,11 @@ function addTerm($term,$year,$startDate,$endDate) {
     }
 }
 
+/**
+ * 
+ * @param type $idTerm -> int
+ * @return false or idTerm
+ */
 function deleteTerm($idTerm) {
     $conn = dbconnect();
     $SQLCommand = "DELETE FROM `term` WHERE `idTerm` =:idTerm";

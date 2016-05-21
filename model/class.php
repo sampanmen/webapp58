@@ -1,6 +1,11 @@
 <?php
 require_once '../functions/connection.inc.php';
 
+/**
+ * 
+ * @param type $idClass -> int
+ * @return false or result
+ */
 function getClassByIdClass($idClass) {
     $conn = dbconnect();
     $SQLCommand = "select c.*,u.titlename,u.name,u.surname,u.position "
@@ -19,6 +24,10 @@ function getClassByIdClass($idClass) {
     }
 }
 
+/**
+ * 
+ * @return false or result
+ */
 function getClasses() {
     $conn = dbconnect();
     $SQLCommand = "SELECT c.*,u.titlename,u.name,u.surname,u.position FROM `class` c inner join user u on  u.idUser = c.idUserTeacher ";
@@ -58,6 +67,11 @@ function addClass($classRoom,$idUserTeacher,$termClass) {
     }
 }
 
+/**
+ * 
+ * @param type $idClass -> int
+ * @return false or idClass
+ */
 function deleteClass($idClass) {
     $conn = dbconnect();
     $SQLCommand = "DELETE FROM `class` WHERE `idClass`=:idClass";

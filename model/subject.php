@@ -11,7 +11,7 @@ require_once '../functions/connection.inc.php';
  */
 function getAllSubjectByStudent($idStudent, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
+    $SQLCommand = "SELECT s.*,t.idTeaching,c.classroom as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
@@ -37,6 +37,13 @@ function getAllSubjectByStudent($idStudent, $term, $year) {
     }
 }
 
+/**
+ * 
+ * @param type $idTeacher -> str limit 10
+ * @param type $term tinyint
+ * @param type $year int
+ * @return false or results
+ */
 function getAllSubjectByTeacher($idTeacher, $term, $year) {
     $conn = dbconnect();
     $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
@@ -63,6 +70,12 @@ function getAllSubjectByTeacher($idTeacher, $term, $year) {
     }
 }
 
+/**
+ * 
+ * @param type $term -> tinyint
+ * @param type $year -> int
+ * @return false or results
+ */
 function getAllSubjectByAdmin($term, $year) {
     $conn = dbconnect();
     $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(t.groupLearn) as groupLearn,tm.yearTerm,tm.term,ut.name,ut.titleName,ut.surname,ut.idUser "
@@ -89,6 +102,10 @@ function getAllSubjectByAdmin($term, $year) {
     }
 }
 
+/**
+ * 
+ * @return false or results
+ */
 function getAllSubject() {
     $conn = dbconnect();
     $SQLCommand = "SELECT * FROM subject  ";
@@ -103,7 +120,11 @@ function getAllSubject() {
         return false;
     }
 }
-
+/**
+ * 
+ * @param type $idSubject -> str limit 10
+ * @return false or results
+ */
 function getSubjectByIdSubject($idSubject) {
     $conn = dbconnect();
     $SQLCommand = "SELECT * FROM subject s where s.idSubject=:idSubject ";
@@ -118,7 +139,12 @@ function getSubjectByIdSubject($idSubject) {
         return false;
     }
 }
-
+/**
+ * 
+ * @param type $idSubject -> str limit 10
+ * @param type $nameSubject -> limit 150
+ * @return false or results
+ */
 function updateSubject($idSubject,$nameSubject) {
     $conn = dbconnect();
     $SQLCommand = "UPDATE `subject` SET `nameSubject`=:nameSubject WHERE `idSubject`=:idSubject";
@@ -148,7 +174,8 @@ function getSubjectAllSubjectAndSchedule($idTeacher) {
             . "INNER JOIN subject_schedule ss ON ss.idTeaching = t.idTeaching "
             . "INNER JOIN term tm ON tm.idTerm = t.idTerm "
             . "INNER JOIN user u ON u.idUser = t.idUserTeacher "
-            . "where u.idUser = :idUser";
+            . "where u.idUser = :idUser "
+            . "ORDER BY FIELD(ss.daySche , 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
@@ -225,10 +252,11 @@ function addSubjectSchedule($idTeaching, $startTime,$endTime,$room,$day) {
  */
 function getSubjectScheduleByIdTeaching($idTeaching) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT t.groupLearn,s.*,ss.startTimeSche,ss.endTimeSche,ss.roomSche,ss.daySche "
+    $SQLCommand = "SELECT c.classroom as groupLearn,s.*,ss.startTimeSche,ss.endTimeSche,ss.roomSche,ss.daySche "
             . "FROM teaching t "
             . "INNER JOIN subject s ON s.idSubject = t.idSubject "
             . "INNER JOIN subject_schedule ss on ss.idTeaching = t.idTeaching "
+            . "inner join class c on c.idClass = t.groupLearn "
             . "WHERE t.idTeaching = :idTeaching";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
@@ -245,6 +273,7 @@ function getSubjectScheduleByIdTeaching($idTeaching) {
         return false;
     }
 }
+
 /**
  * 
  * @param type $idSubject -> int
@@ -286,8 +315,5 @@ function deleteSubjectSchedule($idSchedule) {
     }
 }
 
-//echo addSubjectSchedule('1', '04:00:00', '05:00:00', 'erf2', 'monday');
-//print_r(getSubjectScheduleByIdTeaching(2));
-//print_r(getAllSubjectByTeacher('E9044',2, 2558));
-//print_r(getAllSubjectByAdmin(2, 2558));
-//echo '<pre>',print_r(getSubjectAllSubjectAndSchedule('E9044')),'</pre>';
+
+//echo '<pre>',  print_r(getSubjectScheduleByIdTeaching(1)),'</pre>';
