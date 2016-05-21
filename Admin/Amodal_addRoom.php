@@ -20,11 +20,21 @@
                             <label>อาจารย์ประจำชั้น</label>
                         </div>
                         <div class="form-group col-lg-6">
-                            <select class="form-control" name="nameteacher">
-                                <option value="1" selected="">Nutchanart Sattayakawee</option>
-                                <option value="2">Kairat Jareanra</option>
+                            <select id="teacher" class="form-control" name="nameteacher">
+                                
                             </select>  
-
+                            <script>
+                                $("#teacher");
+                                var url = "../control/control.admin.getTeacher.php";
+                                $.post(url, function (data) {
+                                    var obj = jQuery.parseJSON(data);
+                                    //alert(obj);
+                                    for (var key in obj) {
+                                        var select = '<option value="' + obj[key]['iduser'] + '">' + obj[key]['name'] + '</option>';
+                                        $("#teacher").append(select);
+                                    }
+                                });
+                            </script>
                         </div>
                     </div>                
                 </div>
