@@ -21,17 +21,6 @@
                                         <th>การนัดหมาย</th>
                                     </tr>
                                 </thead>
-<!--                                <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>02204445</td>
-                                        <td>Web App</td>
-                                        <td>Nutchanart Sattayakawee</td>
-                                        <td class="text-center"><label class="label label-success" href="">Open</label></td>
-                                        <td><input class="btn btn-default" type="button" value="Appointment" onclick="window.location.href = '../Student/Steachingschedule.php'"></td>
-                                    </tr>     
-                                </tbody>
-                            </table>-->
 
                                 <tbody id="tbodySubject">
 

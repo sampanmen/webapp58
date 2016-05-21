@@ -42,7 +42,8 @@
                     </tbody>
                 </table>
                 <script>
-                    var url = "../control/control.student.getSchedule.php?teacherid=888";
+                    var url = "../control/control.student.getSchedule.php?teacherid=<?= $_SESSION['idUser'] ?>";
+                    
                     $.post(url, function (data) {
                         var jsonData = jQuery.parseJSON(data);
                         var days = ['วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์'];
@@ -84,9 +85,9 @@
                             t = t + "<td class='text-center'>" + days[i] + "</td>";
                             for (j = 0; j < 18; j++) {
                                 if (j == startTime) {
-                                    t = t + "<td class='text-center event' colspan='" + (endTime - startTime) + "'>"+jsonData[k]['idSubject']+"<br/>"+jsonData[k]['nameSubject']+"</td>";
+                                    t = t + "<td class='text-center event' colspan='" + (endTime - startTime) + "'>" + jsonData[k]['idSubject'] + "<br/>" + jsonData[k]['nameSubject'] + "</td>";
                                     k++;
-                                    j = endTime-1;
+                                    j = endTime - 1;
                                     startTime = -1;
                                     endTime = -1;
                                     if (k < jsonData.length) {
@@ -98,7 +99,7 @@
                                             endTime = -1;
                                         }
                                     }
-                                    
+
                                 }
                                 else {
                                     t = t + "<td class='text-center'></td>";
