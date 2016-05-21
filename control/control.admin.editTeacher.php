@@ -6,10 +6,15 @@ echo "</pre>";
 
 require_once '../model/user.php';
 
-$idUser = isset($_POST['']) ? $_POST[''] : "";
-$titleName = isset($_POST['']) ? $_POST[''] : "";
-$name = isset($_POST['']) ? $_POST[''] : "";
-$surname = isset($_POST['']) ? $_POST[''] : "";
-$position = isset($_POST['']) ? $_POST[''] : "";
+$idUser = isset($_POST['userid']) ? $_POST['userid'] : "";
+$titleName = isset($_POST['titlename']) ? $_POST['titlename'] : "";
+$name = isset($_POST['name']) ? $_POST['name'] : "";
+$surname = isset($_POST['sname']) ? $_POST['sname'] : "";
+$position = isset($_POST['position']) ? $_POST['position'] : "";
+$status = isset($_POST['statusteacher']) ? $_POST['statusteacher'] : "";
 
-updateUserInfo($idUser, $titleName, $name, $surname, $position);
+if (updateUserInfo($idUser, $titleName, $name, $surname, $position, $status) != FALSE) {
+    header("Location: ../Admin/AviewTeacher.php?p=edit_teacher_completed");
+} else {
+    header("Location: ../Admin/AviewTeacher.php?p=edit_teacher_error");
+}

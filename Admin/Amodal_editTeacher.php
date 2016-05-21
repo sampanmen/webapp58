@@ -61,7 +61,7 @@
                             <label>สถานะ</label>
                         </div>
                         <div class="form-group col-lg-6">
-                            <select class="form-control" name="statusieacher" id="statusTeacher" id="statusTeacher">
+                            <select class="form-control" name="statusteacher" id="statusTeacher" id="statusTeacher">
                                 <option selected value="active">Active</option>
                                 <option value="deactive">Deactive</option>
                             </select>    
