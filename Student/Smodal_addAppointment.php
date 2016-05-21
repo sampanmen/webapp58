@@ -84,7 +84,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <?php session_start(); ?>
+        <?php //session_start(); ?>
         <input type="hidden" name="subjectid" value="<?= $_GET['subjectid'] ?>">
         <input type="hidden" name="userid" value="<?= $_GET['userid'] ?>">
         <input type="hidden" name="stdid" value="<?= $_SESSION['idUser'] ?>">
