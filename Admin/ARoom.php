@@ -19,7 +19,7 @@
                                         <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbody">
+                                <tbody id="tbodyRoom">
 
                                 </tbody>
                             </table>
@@ -35,7 +35,7 @@
                                         t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewStudent.php?roomid=" + jsonData[key]['idClass'] + "' >detail</a></button></td>";
                                         t = t + "</tr>";
 
-                                        $("#tbody").append(t);
+                                        $("#tbodyRoom").append(t);
                                     }
                                     //console.log($("#tbody").html());
                                     $('#dataTables-ARoom').DataTable({
@@ -48,6 +48,6 @@
                 </div>
             </div>
         </div>
-    </div
+    </div>
 </div>
 
