@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ปีการศึกษา <button class="btn btn-circle glyphicon-plus" href="Amodal_addTerm.php" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">All Subject <button class="btn btn-circle glyphicon-plus" href="Amodal_addAllSubject.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -14,16 +14,18 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>ปีการศึกษา</th>
-                                        <th>ภาคการเรียน</th>
-                                        <th>รายละเอียด</th>
+                                        <th class="text-center">No.</th>
+                                        <th>ID Subject</th>
+                                        <th>Subject Name</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>2559</td>
-                                        <td>1</td>
-                                        <td><button class="btn btn-default"><a href="AviewSubject.php" >Detail</a></button>
+                                        <td class="text-center">1</td>
+                                        <td>02204445</td>
+                                        <td>Web App</td>
+                                        <td><button class="btn btn-circle glyphicon-pencil" href="Amodal_editAllSubject.php" data-toggle="modal" data-target="#myModal2"></button></td>
                                     </tr>     
                                 </tbody>
                             </table>
@@ -32,6 +34,8 @@
                 </div>
             </div>
         </div>
-    </div
+    </div>
 </div>
+
+
 

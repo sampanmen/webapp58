@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Teaching schedule  <button class="btn btn-circle glyphicon-plus" href="../Smodal_addAppointment.php" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">ตารางแสดงการสอน เสร็จแล้ว <button class="btn btn-circle glyphicon-plus" href="Smodal_addAppointment.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
             <div>
                 <div class="col-lg-12">  
@@ -37,7 +37,10 @@
                             <th colspan="2">16:00-17:00</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id='detailSchedule'>
+                        
+                    </tbody>
+<!--                    <tbody>
                         <tr>
                             <td>Monday</td>
                             <td class=" no-events" rowspan="1"></td>
@@ -235,10 +238,9 @@
 
                         </tr>
 
-                    </tbody>
+                    </tbody>-->
                 </table>
             </div>
         </div>
     </div>
 </div>
-

@@ -1,6 +1,6 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" id="gridSystemModalLabel">New Subject</h4>
+    <h4 class="modal-title" id="gridSystemModalLabel">New Subject IN Term</h4>
 </div>
 
 <div class="modal-body">
@@ -32,19 +32,13 @@
                         Nutchanart Sattayakawee
                     </div>
                 </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-6"></div>
-                    <div class="form-group col-lg-6"><a href="....">+เพิ่มอาจารย์ผู้สอน</a>
-<!--                    <div class="form-group col-lg-6">
-                        <select multiple class="form-control" name="nameteacher">
-                            <option selected value="1">Nutchanart Sattayakawee</option>
-                            <option value="2">kayrat Jareanrat</option>
-                        </select>                            
-                    </div>-->
-                </div>
+                
                 <div class="col-lg-12">  
                     <div class="col-lg-6">                                           
                         <label>เวลาสอน / Time</label>
+                    </div>
+                     <div class="col-lg-6">                                           
+                        
                     </div>
 
                 </div>

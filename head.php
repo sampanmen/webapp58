@@ -22,18 +22,27 @@
         <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
         <!--Calendar CSS-->
         <link href="../css/calendar.css" rel="stylesheet" type="text/css"/>
+        <link href="../bower_components/Datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <?php
+        session_start();
+        ?>
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <!--                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>-->
-                    <a class="navbar-brand" href="index.html">Appoint School</a>
+                    <!--                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                                            <span class="sr-only">Toggle navigation</span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                        </button>-->
+                    <?php if ($_SESSION['permission'] == "admin") { ?>
+                        <a class="navbar-brand" href="ATerm.php">การนัดหมายคุณครู</a><?php } ?>
+                    <?php if ($_SESSION['permission'] == "student") { ?>
+                        <a class="navbar-brand" href="SallSubject.php">การนัดหมายคุณครู</a><?php } ?>
+                    <?php if ($_SESSION['permission'] == "teacher") { ?>
+                        <a class="navbar-brand" href="">การนัดหมายคุณครู</a><?php } ?>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
@@ -43,123 +52,103 @@
                         <ul class="dropdown-menu dropdown-user">
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> ข้อมูลผู้ใช้</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> ตั้งค่า</a>
-                            </li>
                             <li class="divider"></li>
-                            <li><a href="control/control.logout.php"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
+                            <li><a href="/webapp58/control/control.logout.php"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
 
                 <!--ADMIN-->
-                <!--                <div class="navbar-default sidebar" role="navigation">
-                                    <div class="sidebar-nav navbar-collapse">
-                                        <ul class="nav" id="side-menu">
-                                            <li class="sidebar-search">
-                                                <div class="input-group custom-search-form">
-                                                    <input type="text" class="form-control" placeholder="Search...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button">
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                               
-                                            </li>
-                                            <li>
-                                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
-                                            </li>
-                                            <li>
-                                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
-                                            </li>
-                                            <li>
-                                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
-                                            </li>
-                
-                                        </ul>
-                                    </div>
-                                </div>-->
-                <!--STUDENT-->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> Course Registration</a>
-                            </li>
-                            <li>
-                                <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> Summery Appoint</a>
-                            </li>
-                        </ul>
+                <?php if ($_SESSION['permission'] == "admin") { ?>
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li>
+                                    <a href="ATerm.php"><i class="fa fa-reorder fa-fw"></i> ปีการศึกษา</a>
+                                </li>
+                                <li>
+                                    <a href="AviewAllSubject.php"><i class="fa fa-book fa-fw"></i> วิชา</a>
+                                </li>
+                                <li>
+                                    <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> คุณครู</a>
+                                </li>
+                                <li>
+                                    <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> ห้องเรียน</a>
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!--TEACHER-->
-                <!--                <div class="navbar-default sidebar" role="navigation">
-                                    <div class="sidebar-nav navbar-collapse">
-                                        <ul class="nav" id="side-menu">
-                                            <li class="sidebar-search">
-                                                <div class="input-group custom-search-form">
-                                                    <input type="text" class="form-control" placeholder="Search...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button">
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> Subject</a>
-                                            </li>
-                                            <li>
-                                                <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> Teacher</a>
-                                            </li>
-                                            <li>
-                                                <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> Student</a>
-                                            </li>
-                
-                                        </ul>
-                                    </div>
-                                </div>-->
+                    <?php
+                }
+                if ($_SESSION['permission'] == "student") {
+                    ?>
+                    <!--STUDENT-->
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+
+                                <li>
+                                    <a href="SallSubject.php"><i class="fa fa-dashboard fa-fw"></i> รายวิชาที่ลงทะเบียน </a>
+                                </li>
+                                <li>
+                                    <a href="SsummeryAppoint.php"><i class="fa fa-table fa-fw"></i> สรุปผลการนัดหมาย</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php
+                }
+                if ($_SESSION['permission'] == "teacher") {
+                    ?>
+                    <!--TEACHER-->
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li>
+                                    <a href=""><i class="fa fa-book fa-fw"></i> ตารางแสดงการนัดหมาย</a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-book fa-fw"></i> อนุมัติการนัดหมาย</a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-university fa-fw"></i> อนุมัตินักเรียน</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                <?php } ?>
             </nav>
         </div>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
                 </div>
-                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
                 </div>
-                <div class="modal fade" id="myModal1-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal1-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
                 </div>
-                <div class="modal fade" id="myModal2-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-        
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal2-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
                 </div>
+            </div>
+        </div>
         <!-- /#wrapper -->
         <footer>
             <!-- jQuery -->
@@ -179,11 +168,22 @@
                     });
                 });
             </script>
+            <script src="../bower_components/Datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+            <!--SCHEDULE-->
+            <script src="../js/student/schedule.js" type="text/javascript"></script>
+            <!--datepicker-->
+            <script type="text/javascript">
+                $('#myModal').on('shown.bs.modal', function (e) {
+                   
+                        $('#appdatepicker').datepicker();
+                   
+                });
+            </script>
             <!-- Custom Theme JavaScript -->
             <script src="../dist/js/sb-admin-2.js"></script>
-
             <!--Calendar-->
-            <script src="../js/calendar.js" type="text/javascript"></script>
+            <!--<script src="../js/calendar.js" type="text/javascript"></script>-->
+
         </footer>
 
     </body>
