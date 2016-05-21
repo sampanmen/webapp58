@@ -135,7 +135,7 @@ function getAllSubject() {
  */
 function getSubjecScheduleByIdSubjectAndTerm($idSubject, $term, $yearTerm) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT ss.*,t.groupLearn "
+    $SQLCommand = "SELECT ss.*,c.classroom as groupLearn "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "INNER JOIN subject_schedule ss on ss.idTeaching = t.idTeaching "
