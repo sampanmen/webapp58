@@ -34,6 +34,7 @@ function getCurrentTerm($dateToday) {
         return false;
     }
 }
+
 /**
  * 
  * @param type $term -> tinyint

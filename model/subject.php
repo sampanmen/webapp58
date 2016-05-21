@@ -165,7 +165,8 @@ function addSubjectSchedule($idTeaching, $startTime,$endTime,$room,$day) {
 function getSubjectScheduleByIdTeaching($idTeaching) {
     $conn = dbconnect();
     $SQLCommand = "SELECT t.groupLearn,s.*,ss.startTimeSche,ss.endTimeSche,ss.roomSche,ss.daySche "
-            . "FROM teaching t INNER JOIN subject s ON s.idSubject = t.idSubject "
+            . "FROM teaching t "
+            . "INNER JOIN subject s ON s.idSubject = t.idSubject "
             . "INNER JOIN subject_schedule ss on ss.idTeaching = t.idTeaching "
             . "WHERE t.idTeaching = :idTeaching";
 
@@ -217,5 +218,5 @@ function deleteSubjectSchedule($idSchedule) {
 }
 
 //echo addSubjectSchedule('1', '04:00:00', '05:00:00', 'erf2', 'monday');
-//print_r(getSubjectScheduleByIdTeaching(1
+print_r(getSubjectScheduleByIdTeaching(2));
 //print_r(getAllSubjectByTeacher('E9044',2, 2558));
