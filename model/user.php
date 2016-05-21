@@ -189,4 +189,3 @@ function deleteUser($idUser) {
     }
 }
 
-print_r(getUserByPermission("teacher"));
