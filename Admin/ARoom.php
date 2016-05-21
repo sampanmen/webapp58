@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example2">
                                 <thead>
                                     <tr>
                                         <th>Room</th>
@@ -19,14 +19,30 @@
                                         <th>Detail</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">6/1</td>
-                                        <td>Nuchanart Sattayakawee</td>
-                                        <td><button class="btn btn-default"><a href="../Admin/AviewStudent.php" >detail</a></button></td>
-                                    </tr>     
+                                <tbody id="tbody">
+
                                 </tbody>
                             </table>
+
+                            <script>
+                                var url = "../control/control.admin.getRoom.php";
+                                $.post(url, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    for (var key in jsonData) {
+                                        var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewStudent.php?roomid=" + jsonData[key]['idClass'] + "' >detail</a></button></td>";
+                                        t = t + "</tr>";
+
+                                        $("#tbody").append(t);
+                                    }
+                                    //console.log($("#tbody").html());
+                                    $('#dataTables-example2').DataTable({
+                                        responsive: true
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>

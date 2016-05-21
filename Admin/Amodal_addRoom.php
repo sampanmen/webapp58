@@ -21,22 +21,21 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <select id="teacher" class="form-control" name="teacherid">
-                                
+
                             </select>  
 
                             <script>
-                                $("#teacher");
+
                                 var url = "../control/control.admin.getTeacher.php";
                                 $.post(url, function (data) {
                                     var obj = jQuery.parseJSON(data);
                                     //alert(obj);
                                     for (var key in obj) {
-                                        var select = '<option value="' + obj[key]['idUser'] + '">' + obj[key]['name'] + obj[key]['surname'] +obj[key]['status'] +obj[key]['position'] +obj[key]['permisstion'] +obj[key]['classRoom'] +obj[key]['Advisors']+ '</option>';
+                                        var select = '<option value="' + obj[key]['idUser'] + '">' + obj[key]['name'] + obj[key]['surname'] + obj[key]['status'] + obj[key]['position'] + obj[key]['permisstion'] + obj[key]['classRoom'] + obj[key]['Advisors'] + '</option>';
                                         $("#teacher").append(select);
                                     }
                                 });
                             </script>
-
                         </div>
                     </div>                
                 </div>
