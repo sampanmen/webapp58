@@ -1,4 +1,4 @@
-<!--<form action="../control/control.admin.addSubject.php" method="POST">-->
+<form action="../control/control.admin.addSubject.php" method="POST">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="gridSystemModalLabel">เพิ่มวิชาใหม่</h4>
@@ -93,12 +93,12 @@
                                                     </select>  
                                                 </td>
                                                 <td><input type="text" class="form-control" id="location"> </td>
-                                                <td><button class="btn btn-circle glyphicon-plus" onclick="addItem();"></button></td>
+                                                <td><button type="button" class="btn btn-circle glyphicon-plus" onclick="addItem();"></button></td>
 
                                             </tr>                                                     
 
                                         </tfoot>
-                                        <script>                                                        
+                                        <script>
                                             var itemNo = 0;
                                             function addItem() {
                                                 itemNo++;
@@ -115,7 +115,7 @@
                                                         '<td>' + room + '<input type="hidden" name="item_model[]" value="' + room + '"></td>' +
                                                         '<td>' + location + '<input type="hidden" name="item_serialno[]" value="' + location + '"></td>' +
                                                         '<td><button type="button" class="btn btn-danger btn-circle" onclick="removeItem(\'trItem_' + itemNo + '\')"><i class="glyphicon-minus""></i></button></td>' +
-                                                         '</tr>';
+                                                        '</tr>';
                                                 $("#tbItem").append(ItemHTML);
 
                                                 $("#date").val('');
@@ -137,11 +137,12 @@
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-<!--</form>-->
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</form>
 
 
 
