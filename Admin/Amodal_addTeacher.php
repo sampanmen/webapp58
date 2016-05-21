@@ -1,7 +1,7 @@
 <form action="../control/control.admin.addTeacher.php" method="POST">
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" id="gridSystemModalLabel">New Teacher</h4>
+    <h4 class="modal-title" id="gridSystemModalLabel">เพิ่มผู้สอน</h4>
 </div>
 
 <div class="modal-body">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-lg-12">  
                     <div class="col-lg-6">                                           
-                        <label>Title Name</label>
+                        <label>คำนำหน้าชื่อ / Title Name</label>
                     </div>
                     <div class="form-group col-lg-6"> 
                         <input class="form-control" type="text" name="titlename"> 

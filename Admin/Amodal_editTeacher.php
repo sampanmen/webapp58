@@ -1,6 +1,6 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" id="gridSystemModalLabel">Edit Teacher</h4>
+    <h4 class="modal-title" id="gridSystemModalLabel">00001</h4>
 </div>
 
 <div class="modal-body">
@@ -17,19 +17,10 @@
                 </div>
                 <div class="col-lg-12">  
                     <div class="col-lg-6">                                           
-                        <label>Title Name</label>
-                    </div>
-                    <div class="form-group col-lg-6"> 
-                        <p>นางสาว</p> 
-                    </div>
-                </div>
-
-                <div class="col-lg-12">  
-                    <div class="col-lg-6">                                           
                         <label>ชื่อ /  Name</label>
                     </div>
                     <div class="form-group col-lg-6"> 
-                        <p>Nutchanart</p> 
+                        <p>Miss. Nutchanart</p> 
                     </div>
                 </div>
                 <div class="col-lg-12">  
