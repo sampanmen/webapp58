@@ -17,7 +17,7 @@ function getClassByIdClass($idClass) {
             ));
 
     if ($SQLPrepare->rowCount() > 0) {
-        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
         return $result;
     } else {
         return false;
