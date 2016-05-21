@@ -71,7 +71,7 @@
                                     <a href="AviewAllSubject.php"><i class="fa fa-book fa-fw"></i> วิชา</a>
                                 </li>
                                 <li>
-                                    <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> คุณครู</a>
+                                    <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> ครูผู้สอน</a>
                                 </li>
                                 <li>
                                     <a href="ARoom.php"><i class="fa fa-graduation-cap fa-fw"></i> ห้องเรียน</a>
