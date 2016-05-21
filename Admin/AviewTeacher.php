@@ -20,7 +20,7 @@
                                         <th>นามสกุล</th>
                                         <th>ตำแหน่ง</th>
                                         <th>สถานะ</th>
-                                        <th></th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
 <!--                                <tbody>
@@ -47,13 +47,13 @@
                                     var i=1;
                                     for (var key in jsonData) {
                                         var t = "<tr>";
-                                        t = t + "<td class='text-center'>" + i + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['idUser'] + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['titleName']+ jsonData[key]['name'] + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['position'] + "</td>";
-                                        t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php' >รายละเอียด</a></button></td>";
+                                        t = t + "<td class='text-center' >" + i + "</td>";
+                                        t = t + "<td >" + jsonData[key]['idUser'] + "</td>";
+                                        t = t + "<td >" + jsonData[key]['titleName']+ jsonData[key]['name'] + "</td>";
+                                        t = t + "<td >" + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td >" + jsonData[key]['position'] + "</td>";
+                                        t = t + "<td class='text-center'><label class='label label-" + (jsonData[key]['status'] == "active" ? 'success' : 'danger') + "'>" + jsonData[key]['status'] + "</label></td>"
+                                        t = t + "<td><button class='btn btn-circle glyphicon-pencil' href='Amodal_editTeacher.php?userid='" + jsonData[key]['idUser'] + " data-toggle='modal' data-target='#myModal2'></button></td>";
                                         t = t + "</tr>";
                                         i++;
                                         $("#tbodyTeacher").append(t);
