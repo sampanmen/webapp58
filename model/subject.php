@@ -104,6 +104,37 @@ function getAllSubject() {
     }
 }
 
+function getSubjectByIdSubject($idSubject) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT * FROM subject s where s.idSubject=:idSubject ";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(array(":idSubject" => $idSubject));
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+function updateSubject($idSubject,$nameSubject) {
+    $conn = dbconnect();
+    $SQLCommand = "UPDATE `subject` SET `nameSubject`=:nameSubject WHERE `idSubject`=:idSubject";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idSubject" => $idSubject,
+                ":nameSubject" => $nameSubject
+            )
+    );
+    if ($SQLPrepare->rowCount() > 0) {
+        return $idSubject;
+    } else {
+        return false;
+    }
+}
 /**
  * 
  * @param type $idTeacher -> str limit 10
