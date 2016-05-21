@@ -16,16 +16,13 @@ function getAllTerm() {
     }
 }
 
-function getCurrentTerm($dateToday) {
+function getCurrentTerm() {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.nameSubject,ut.";
+    $SQLCommand = "SELECT * FROM `term` "
+            . "WHERE `startDateTerm`<= CURRENT_DATE AND `endDateTerm`<= CURRENT_DATE";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
-    $SQLPrepare->execute(
-            array(
-                ":idStudent" => $dateToday
-            )
-    );
+    $SQLPrepare->execute();
 
     if ($SQLPrepare->rowCount() > 0) {
         $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
