@@ -11,7 +11,7 @@ require_once '../functions/connection.inc.php';
  */
 function getAllSubjectByStudent($idStudent, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.nameSubject,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
+    $SQLCommand = "SELECT s.*,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
