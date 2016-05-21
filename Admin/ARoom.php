@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">All Room <button class="btn btn-circle glyphicon-plus" href="Amodal_addRoom.php" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">ห้องเรียน <button class="btn btn-circle glyphicon-plus" href="Amodal_addRoom.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -11,12 +11,12 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example2">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-ARoom">
                                 <thead>
                                     <tr>
-                                        <th>Room</th>
-                                        <th>Teacher</th>
-                                        <th>Detail</th>
+                                        <th>ห้องเรียน</th>
+                                        <th>ครูประจำชั้น</th>
+                                        <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbody">
@@ -38,7 +38,7 @@
                                         $("#tbody").append(t);
                                     }
                                     //console.log($("#tbody").html());
-                                    $('#dataTables-example2').DataTable({
+                                    $('#dataTables-ARoom').DataTable({
                                         responsive: true
                                     });
                                 });
