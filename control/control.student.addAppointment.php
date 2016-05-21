@@ -1,9 +1,9 @@
 <?php
 
 //
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+//echo "<pre>";
+//print_r($_POST);
+//echo "</pre>";
 
 require_once '../model/appointment.php';
 
@@ -18,9 +18,9 @@ $getTeacherID = isset($_POST['userid']) ? $_POST['userid'] : "";
 $getStudentID = isset($_POST['stdid']) ? $_POST['stdid'] : "";
 
 if (($appointmentID = addAppointment($getDate . " " . $getStartTime, $getDate . " " . $getEndTime, $getContent, $getTeacherID, $getStudentID, $getTitle)) != FALSE) {
-    //header("Location: ../Student/Steachingschedule.php?subjectid=$getSubjectID&userid=$getTeacherID&p=add_appointment_completed");
-    echo "yes";
+    header("Location: ../Student/Steachingschedule.php?subjectid=$getSubjectID&userid=$getTeacherID&p=add_appointment_completed");
+    //echo "yes";
 } else {
-    //header("Location: ../Student/Steachingschedule.php?subjectid=$getSubjectID&userid=$getTeacherID&p=add_appointment_error");
-    echo "no";
+    header("Location: ../Student/Steachingschedule.php?subjectid=$getSubjectID&userid=$getTeacherID&p=add_appointment_error");
+    //echo "no";
 }
