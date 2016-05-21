@@ -55,20 +55,31 @@ function addSubjectSchedule($idTeaching, $startTime,$endTime,$room,$day) {
     }
 }
 
-function getAllSubjectbyStudent($idStudent) {
+/**
+ * 
+ * @param type $idStudent -> str limit 10
+ * @param type $term -> tinyint
+ * @param type $year -> int
+ * @return false or results 
+ */
+function getAllSubjectByStudent($idStudent, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.nameSubject,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn "
+    $SQLCommand = "SELECT s.nameSubject,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
+            . "inner join term tm on tm.idTerm = t.idTerm "
             . "INNER JOIN enrollment e on e.idTeaching = t.idTeaching "
             . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
             . "INNER JOIN class c on c.idClass = e.idClass "
-            . "INNER JOIN user us on us.idClass = c.idClass AND us.idUser = :idStudent";
+            . "INNER JOIN user us on us.idClass = c.idClass "
+            . "where us.idUser = :idStudent and tm.term=:term and tm.yearTerm =:year";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
             array(
-                ":idStudent" => $idStudent
+                ":idStudent" => $idStudent,
+                ":term" => $term,
+                ":year" => $year
             )
     );
 
@@ -80,17 +91,21 @@ function getAllSubjectbyStudent($idStudent) {
     }
 }
 
-function getAllSubjectbyTeacher($idTeacher) {
+function getAllSubjectByTeacher($idTeacher, $term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
-            . "INNER JOIN user ut on ut.idUser = t.idUserTeacher AND t.idUserTeacher = :idTeacher";
+            . "inner join term tm on tm.idTerm = t.idTerm "
+            . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
+            . "where t.idUserTeacher = :idTeacher and tm.term=:term and tm.yearTerm =:year";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
             array(
-                ":idTeacher" => $idTeacher
+                ":idTeacher" => $idTeacher,
+                ":term" => $term,
+                ":year" => $year
             )
     );
 
@@ -102,6 +117,30 @@ function getAllSubjectbyTeacher($idTeacher) {
     }
 }
 
+function getAllSubjectByAdmin($term, $year) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,t.groupLearn,tm.yearTerm,tm.term "
+            . "FROM subject s "
+            . "INNER JOIN teaching t on t.idSubject = s.idSubject "
+            . "inner join term tm on tm.idTerm = t.idTerm "
+            . "INNER JOIN user ut on ut.idUser = t.idUserTeacher "
+            . "where tm.yearTerm =:year and tm.term=:term";
+
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":term" => $term,
+                ":year" => $year
+            )
+    );
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
 
 /**
  * 
@@ -163,4 +202,5 @@ function deleteSubjectSchedule($idSchedule) {
 }
 
 //echo addSubjectSchedule('1', '04:00:00', '05:00:00', 'erf2', 'monday');
-//print_r(getSubjectScheduleByIdTeaching(1));
+//print_r(getSubjectScheduleByIdTeaching(1
+//print_r(getAllSubjectByTeacher('E9044',2, 2558));
