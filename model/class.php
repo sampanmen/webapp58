@@ -3,7 +3,8 @@ require_once '../functions/connection.inc.php';
 
 function getClassByIdClass($idClass) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT * FROM `class` where `idClass`=:idClass";
+    $SQLCommand = "select c.*,u.titlename,u.name,u.surname,u.position "
+            . "FROM `class` c inner join user u on  u.idUser = c.idUserTeacher and c.`idClass`=:idClass";
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(
             array(
@@ -20,7 +21,7 @@ function getClassByIdClass($idClass) {
 
 function getClasses() {
     $conn = dbconnect();
-    $SQLCommand = "SELECT * FROM `class` ";
+    $SQLCommand = "SELECT c.*,u.titlename,u.name,u.surname,u.position FROM `class` c inner join user u on  u.idUser = c.idUserTeacher ";
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute();
 
@@ -72,4 +73,4 @@ function deleteClass($idClass) {
     }
 }
 
-print_r(getClasses());
+print_r(getClassByIdClass(1));
