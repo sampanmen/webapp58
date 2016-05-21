@@ -31,7 +31,7 @@
                                         var t = "<tr>";
                                         t = t + "<td class='text-center'>" + jsonData[key]['yearTerm'] + "</td>";
                                         t = t + "<td>" + jsonData[key]['term'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewSubject.php?term=" + jsonData[key]['term'] +"&year="+ jsonData[key]['yearTerm']+ "' >รายละเอียด</a></button></td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/AviewSubject.php?termid=" + jsonData[key]['idTerm'] +"&term="+ jsonData[key]['term']+"&year="+ jsonData[key]['yearTerm']+ "' >รายละเอียด</a></button></td>";
                                         t = t + "</tr>";
                                         $("#tbodyTerm").append(t);
                                     }
