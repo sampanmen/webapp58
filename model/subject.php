@@ -66,7 +66,7 @@ function getAllSubjectByTeacher($idTeacher, $term, $year) {
 
 function getAllSubjectByAdmin($term, $year) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(t.groupLearn),tm.yearTerm,tm.term "
+    $SQLCommand = "SELECT s.*,ut.titleName,ut.name,ut.surname,t.idTeaching,GROUP_CONCAT(t.groupLearn) as groupLearn,tm.yearTerm,tm.term "
             . "FROM subject s "
             . "INNER JOIN teaching t on t.idSubject = s.idSubject "
             . "inner join term tm on tm.idTerm = t.idTerm "
