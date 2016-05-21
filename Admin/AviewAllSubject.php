@@ -35,7 +35,7 @@
                                         t = t + "<td class='text-center'>" + i + "</td>";
                                         t = t + "<td >" + jsonData[key]['idSubject'] + "</td>";
                                         t = t + "<td>" + jsonData[key]['nameSubject'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/Amodal_editAllSubject?subjectid=" + jsonData[key]['idSubject'] + "' >รายละเอียด</a></button></td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Admin/Amodal_editAllSubject.php?subjectid=" + jsonData[key]['idSubject'] + "' >รายละเอียด</a></button></td>";
                                         t = t + "</tr>";
                                         i++;
                                         $("#tbodyAAllSubject").append(t);
