@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ห้อง ป.6/3 <button class="btn btn-circle glyphicon-plus" href="Amodal_addStudent.php?roomid=<?= $_GET['roomid']; ?>" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 id="title" class="page-header"> <button class="btn btn-circle glyphicon-plus" href="Amodal_addStudent.php?roomid=<?= $_GET['roomid']; ?>" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -31,7 +31,7 @@
 
                             <script>
                                 var url = "../control/control.admin.getStudent.php";
-                                $.post(url,{roomid:<?=$_GET['roomid']?>}, function (data) {
+                                $.post(url, {roomid:<?= $_GET['roomid'] ?>}, function (data) {
                                     var jsonData = jQuery.parseJSON(data);
                                     var i = 0;
                                     for (var key in jsonData) {
@@ -53,8 +53,12 @@
                                         responsive: true
                                     });
                                 });
+                                url = "../control/control.admin.getRoom.php";
+                                $.post(url, {roomid:<?= $_GET['roomid'] ?>}, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    $("#title").prepend(jsonData['classRoom']);
+                                });
                             </script>
-
                         </div>
                     </div>
                 </div>
@@ -62,5 +66,3 @@
         </div>
     </div>
 </div>
-
-
