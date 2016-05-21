@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-               <h1 class="page-header">ผู้สอน<button class="btn btn-circle glyphicon-plus" href="Amodal_addTeacher.php" data-toggle="modal" data-target="#myModal"></button></h1>
+               <h1 class="page-header">ครูผู้สอน <button class="btn btn-circle glyphicon-plus" href="Amodal_addTeacher.php" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
         </div>
         <div class="row">
@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-Teacher">
                                 <thead>
                                     <tr>
                                         <th class="text-center">ลำดับที่</th>
@@ -23,7 +23,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+<!--                                <tbody>
                                     <tr>
                                         <td class="text-center">1</td>
                                         <td>000001</td>
@@ -34,7 +34,37 @@
                                         <td><button class="btn btn-circle glyphicon-pencil" href="Amodal_editTeacher.php" data-toggle="modal" data-target="#myModal2"></button></td>
                                     </tr>     
                                 </tbody>
+                            </table>-->
+                                <tbody id="tbodyTeacher">
+
+                                </tbody>
                             </table>
+
+                            <script>
+                                var url = "../control/control.admin.getTeacher.php";
+                                $.post(url, function (data) {
+                                    var jsonData = jQuery.parseJSON(data);
+                                    var i=1;
+                                    for (var key in jsonData) {
+                                        var t = "<tr>";
+                                        t = t + "<td class='text-center'>" + i + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['idUser'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['titleName']+ jsonData[key]['name'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['position'] + "</td>";
+                                        t = t + "<td>" + jsonData[key]['titlename'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php' >รายละเอียด</a></button></td>";
+                                        t = t + "</tr>";
+                                        i++;
+                                        $("#tbodyTeacher").append(t);
+                                        
+                                    }
+                                    //console.log($("#tbody").html());
+                                    $('#dataTables-Teacher').DataTable({
+                                        responsive: true
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>

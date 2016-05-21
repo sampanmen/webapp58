@@ -1,4 +1,4 @@
-function table() {
+function createtable(url,append,table) {
     var url = "../control/control.admin.getRoom.php";
     $.post(url, function (data) {
         var jsonData = jQuery.parseJSON(data);
