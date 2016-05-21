@@ -12,7 +12,7 @@
                             <label>วิชา</label>
                         </div>
                         <div class="form-group col-lg-6"> 
-                            <select id="teacher" class="form-control" name="teacherid">
+                            <select id="teacher" class="form-control" name="subjectid">
                                 <option value="1" selected="">00001 WebApp</option>
                                 <option value="2">00002 Analog</option>
                             </select> 
