@@ -68,7 +68,7 @@
                                     <a href="ATerm.php"><i class="fa fa-book fa-fw"></i> ปีการศึกษา</a>
                                 </li>
                                 <li>
-                                    <a href="AviewSubject.php"><i class="fa fa-book fa-fw"></i> วิชา</a>
+                                    <a href="AviewAllSubject.php"><i class="fa fa-book fa-fw"></i> วิชา</a>
                                 </li>
                                 <li>
                                     <a href="AviewTeacher.php"><i class="fa fa-university fa-fw"></i> คุณครู</a>
