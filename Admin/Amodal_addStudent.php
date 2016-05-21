@@ -7,15 +7,15 @@
         <div class="container-fluid">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12">  
-                        <div class="col-lg-6">                                           
+                    <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <label>รหัสประจำตัว / Student ID</label>
                         </div>
-                        <div class="form-group col-lg-6"> 
-                            <input class="form-control" name="idstudent"> 
+                        <div class="form-group col-lg-6">
+                            <input class="form-control" name="idstudent">
                         </div>
                     </div>
-                    <div class="col-lg-12">  
+                    <div class="col-lg-12">
                         <div class="col-lg-6">                                           
                             <label>Title Name</label>
                         </div>
@@ -28,7 +28,7 @@
                             <label>ชื่อ /  Name</label>
                         </div>
                         <div class="form-group col-lg-6"> 
-                            <input class="form-control" type="text" name="nametstudent"> 
+                            <input class="form-control" type="text" name="namestudent"> 
                         </div>
                     </div>
                     <div class="col-lg-12">  
@@ -61,6 +61,7 @@
         </div>
     </div>
     <div class="modal-footer">
+        <input type="hidden" name="roomid" value="<?= $_GET['roomid'] ?>">
         <button type="submit" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div>
