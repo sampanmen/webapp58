@@ -94,10 +94,11 @@ function getConcludeAppointmentByStudent($idStudent) {
  */
 function getConcludeAppointmentByTeacher($idUserTeacher) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT ap.*,s.nameSubject,ut.titleName,ut.name,ut.surname FROM appointment ap "
+    $SQLCommand = "SELECT ap.*,s.nameSubject,ut.titleName,ut.name,ut.surname,c.classRoom FROM appointment ap "
             . "INNER JOIN teaching t on t.idTeaching = ap.idTeaching "
             . "INNER JOIN subject s on s.idSubject = t.idSubject "
             . "INNER JOIN user ut ON ut.idUser = t.idUserTeacher "
+            . "inner join class c on c.idclass =t.grouplearn "
             . "where ap.idUserTeacher=:idUserTeacher "
             . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE ";
 
