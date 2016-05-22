@@ -38,6 +38,41 @@ function getAppointmentOnlyApproveBySubject($idSubject, $term, $yearTerm) {
 
 /**
  * 
+ * @param type $idTeacher -> str limit 10 
+ * @param type $term -> tiny int
+ * @param type $yearTerm -> int
+ * @return boolean
+ */
+function getAppointmentOnlyApproveByIdTeacher($idTeacher, $term, $yearTerm) {
+    $conn = dbconnect();
+    $SQLCommand = "SELECT ap.*,s.nameSubject,us.titleName,us.name,us.surname FROM appointment ap "
+            . "INNER JOIN teaching t on t.idTeaching = ap.idTeaching "
+            . "INNER JOIN subject s on s.idSubject = t.idSubject "
+            . "INNER JOIN user ut ON ut.idUser = t.idUserTeacher "
+            . "INNER JOIN user us ON us.idUser = ap.idUserStudent "
+            . "inner join term tm on tm.idTerm = t.idTerm "
+            . "where ap.idUserTeacher =:idTeacher and tm.term =:term AND tm.yearTerm =:yearTerm "
+            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE "
+            . "order by ap.startDateTimeApp";
+    $SQLPrepare = $conn->prepare($SQLCommand);
+    $SQLPrepare->execute(
+            array(
+                ":idTeacher" => $idTeacher,
+                ":term" => $term,
+                ":yearTerm" => $yearTerm
+    ));
+
+    if ($SQLPrepare->rowCount() > 0) {
+        $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+
+/**
+ * 
  * @param type $idUserTeacher -> str limit 10
  * @return false or result
  */
