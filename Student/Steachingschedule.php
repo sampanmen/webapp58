@@ -48,10 +48,10 @@
                     <thead>
                         <tr>
                             <th class="text-center">ลำดับที่</th>
-                            <th>ชื่อ</th>
-                            <th>นามสกุล</th>
-                            <th>วัน</th>
-                            <th>เวลา</th>
+                            <th>หัวข้อ</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>วิชา</th>
+                            <th>วัน / เวลา</th>
                         </tr>
                     </thead>
 
@@ -63,15 +63,15 @@
                     url = "../control/control.student.approved.php";
                     $.get(url, {subjectid: '<?= $_GET['subjectid'] ?>'}, function (data) {
                         var jsonData = jQuery.parseJSON(data);
-                        
+
                         var i = 1;
                         for (var key in jsonData) {
                             var t = "<tr>";
                             t = t + "<td class='text-center'>" + i + "</td>";
-                            t = t + "<td class='text-center'>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                            t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
+                            t = t + "<td>" + jsonData[key]['topicApp'] + "</td>";
                             t = t + "<td>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                            t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php?subjectid=" + jsonData[key]['idSubject'] + "&userid=" + jsonData[key]['idUser'] + "' >รายละเอียด</a></button></td>";
+                            t = t + "<td>" + jsonData[key]['nameSubject'] + "</td>";
+                            t = t + "<td>" + jsonData[key]['startDateTimeApp'] + " " + jsonData[key]['endDateTimeApp'] + "</td>";
                             t = t + "</tr>";
                             i++;
                             $("#tbodySschedule").append(t);
