@@ -3,25 +3,25 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ตารางแสดงการสอน <button class="btn btn-circle glyphicon-plus" href="Smodal_addAppointment.php?subjectid=<?= $_GET['subjectid'] ?>&userid=<?= $_GET['userid'] ?>" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">ตารางแสดงการสอน <button class="btn btn-circle glyphicon-plus" href="Smodal_addAppointment.php?subjectid=<?= $_GET['subjectid'] ?>&userid=<?= $_GET['userid'] ?>&teachingid=<?= $_GET['teachingid'] ?>" data-toggle="modal" data-target="#myModal"></button></h1>
             </div>
             <div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-2">                                           
-                        <label>ชื่อวิชา / Subject Name</label>
-                    </div>
-                    <div class="form-group col-lg-6"> 
-                        <p>Web App</p> 
-                    </div>
-                </div>
-                <div class="col-lg-12">  
-                    <div class="col-lg-2">                                           
-                        <label>ผู้สอน / Teacher</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <p>ผศ.นุชนาฎ   สัตยากวี</p>                              
-                    </div>
-                </div>
+                <!--                <div class="col-lg-12">  
+                                    <div class="col-lg-2">                                           
+                                        <label>ชื่อวิชา / Subject Name</label>
+                                    </div>
+                                    <div class="form-group col-lg-6"> 
+                                        <p>Web App</p> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">  
+                                    <div class="col-lg-2">                                           
+                                        <label>ผู้สอน / Teacher</label>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <p>ผศ.นุชนาฎ   สัตยากวี</p>                              
+                                    </div>
+                                </div>-->
                 <table class="table table-striped table-bordered table-hover" id="dataTables-Appoin">
                     <thead>
                         <tr>
@@ -45,43 +45,43 @@
                     <h1 class="page-header">การนัดหมายที่อนุมัติแล้ว </h1>
                 </div>
                 <table class="table table-striped table-bordered table-hover" id="dataTables-Steachingschedule">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">ลำดับที่</th>
-                                        <th>ชื่อ</th>
-                                        <th>นามสกุล</th>
-                                        <th>วัน</th>
-                                        <th>เวลา</th>
-                                    </tr>
-                                </thead>
+                    <thead>
+                        <tr>
+                            <th class="text-center">ลำดับที่</th>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>วัน</th>
+                            <th>เวลา</th>
+                        </tr>
+                    </thead>
 
-                                <tbody id="tbodySschedule">
+                    <tbody id="tbodySschedule">
 
-                                </tbody>
-                            </table>
-                            <script>
-                                var url = "../control/control.admin.getSubject.php?studentid=<?= $_SESSION['idUser'] ?>";
-                                $.post(url, function (data) {
-                                    var jsonData = jQuery.parseJSON(data);
-                                    var i = 1;
-                                    for (var key in jsonData) {
-                                        var t = "<tr>";
-                                        t = t + "<td class='text-center'>" + i + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['idSubject'] + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
-                                        t = t + "<td>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php?subjectid=" + jsonData[key]['idSubject'] +"&userid="+ jsonData[key]['idUser']+ "' >รายละเอียด</a></button></td>";
-                                        t = t + "</tr>";
-                                        i++;
-                                        $("#tbodySschedule").append(t);
-
-                                    }
-                                    //console.log($("#tbody").html());
-                                    $('#dataTables-Steachingschedule').DataTable({
-                                        responsive: true
-                                    });
-                                });
-                            </script>
+                    </tbody>
+                </table>
+                <script>
+                    url = "../control/control.student.approved.php";
+                    $.get(url, {subjectid: '<?= $_GET['subjectid'] ?>'}, function (data) {
+                        var jsonData = jQuery.parseJSON(data);
+                        
+                        var i = 1;
+                        for (var key in jsonData) {
+                            var t = "<tr>";
+                            t = t + "<td class='text-center'>" + i + "</td>";
+                            t = t + "<td class='text-center'>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                            t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
+                            t = t + "<td>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
+                            t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php?subjectid=" + jsonData[key]['idSubject'] + "&userid=" + jsonData[key]['idUser'] + "' >รายละเอียด</a></button></td>";
+                            t = t + "</tr>";
+                            i++;
+                            $("#tbodySschedule").append(t);
+                        }
+                        //console.log($("#tbody").html());
+                        $('#dataTables-Steachingschedule').DataTable({
+                            responsive: true
+                        });
+                    });
+                </script>
                 <script>
                     var url = "../control/control.student.getSchedule.php?teacherid=<?= $_GET['userid'] ?>";
 
@@ -149,11 +149,9 @@
                             t = t + "</tr>";
                             $("#detailSchedule").append(t);
 
-                            // }
                         }
                     });
                 </script>
-
             </div>
         </div>
     </div>

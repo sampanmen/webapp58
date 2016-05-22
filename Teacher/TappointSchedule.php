@@ -6,7 +6,7 @@
                 <h1 class="page-header">ตารางแสดงการสอน</h1>
             </div>
             <div>
-                
+
                 <table class="table table-striped table-bordered table-hover" id="dataTables-TAppoin">
                     <thead>
                         <tr>
@@ -30,47 +30,45 @@
                     <h1 class="page-header">การนัดหมายที่อนุมัติแล้ว </h1>
                 </div>
                 <table class="table table-striped table-bordered table-hover" id="dataTables-Tteachingschedule">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">ลำดับที่</th>
-                                        <th>ชื่อ</th>
-                                        <th>นามสกุล</th>
-                                        <th>วัน</th>
-                                        <th>เวลา</th>
-                                        <th>รายละเอียด</th>
-                                    </tr>
-                                </thead>
+                    <thead>
+                        <tr>
+                            <th class="text-center">ลำดับที่</th>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>วิชา</th>
+                            <th>วัน / เวลา</th>
+                        </tr>
+                    </thead>
 
-                                <tbody id="tbodyTschedule">
+                    <tbody id="tbodyTschedule">
 
-                                </tbody>
-                            </table>
-                            <script>
-                                var url = "../control/control.admin.getSubject.php?studentid=<?= $_SESSION['idUser'] ?>";
-                                $.post(url, function (data) {
-                                    var jsonData = jQuery.parseJSON(data);
-                                    var i = 1;
-                                    for (var key in jsonData) {
-                                        var t = "<tr>";
-                                        t = t + "<td class='text-center'>" + i + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['idSubject'] + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
-                                         t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
-                                        t = t + "<td>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php?subjectid=" + jsonData[key]['idSubject'] +"&userid="+ jsonData[key]['idUser']+ "' >รายละเอียด</a></button></td>";
-                                        t = t + "</tr>";
-                                        i++;
-                                        $("#tbodyTschedule").append(t);
-
-                                    }
-                                    //console.log($("#tbody").html());
-                                    $('#dataTables-Tteachingschedule').DataTable({
-                                        responsive: true
-                                    });
-                                });
-                            </script>
+                    </tbody>
+                </table>
                 <script>
-                    var url = "../control/control.student.getSchedule.php?teacherid=<?=  $_SESSION['idUser']  ?>";
+                    var url = "../control/control.teacher.approved.php";
+                    $.post(url, {teacherid: '<?= $_SESSION['idUser'] ?>'}, function (data) {
+                        var jsonData = jQuery.parseJSON(data);
+                        var i = 1;
+                        for (var key in jsonData) {
+                            var t = "<tr>";
+                            t = t + "<td class='text-center'>" + i + "</td>";
+                            t = t + "<td>" + jsonData[key]['titleName'] + jsonData[key]['name'] + "</td>";
+                            t = t + "<td>" + jsonData[key]['surname'] + "</td>";
+                            t = t + "<td>" + jsonData[key]['nameSubject'] + "</td>";
+                            t = t + "<td>" + jsonData[key]['startDateTimeApp'] + " - " + jsonData[key]['endDateTimeApp'] + "</td>";
+                            t = t + "</tr>";
+                            i++;
+                            $("#tbodyTschedule").append(t);
+
+                        }
+                        //console.log($("#tbody").html());
+                        $('#dataTables-Tteachingschedule').DataTable({
+                            responsive: true
+                        });
+                    });
+                </script>
+                <script>
+                    var url = "../control/control.student.getSchedule.php?teacherid=<?= $_SESSION['idUser'] ?>";
 
                     $.post(url, function (data) {
                         var jsonData = jQuery.parseJSON(data);

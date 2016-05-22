@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <form action="../control/control.student.addAppointment.php" method="POST">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -84,10 +85,12 @@
         </div>
     </div>
     <div class="modal-footer">
-        <?php //session_start(); ?>
+        
         <input type="hidden" name="subjectid" value="<?= $_GET['subjectid'] ?>">
         <input type="hidden" name="userid" value="<?= $_GET['userid'] ?>">
         <input type="hidden" name="stdid" value="<?= $_SESSION['idUser'] ?>">
+        <input type="hidden" name="teachingid" value="<?= $_GET['teachingid'] ?>">
+        
         <button type="submit" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div>

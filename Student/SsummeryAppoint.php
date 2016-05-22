@@ -37,8 +37,8 @@
                                         var t = "<tr>";
                                         t = t + "<td class='text-center'>" + i + "</td>";
                                         t = t + "<td class='text-center'>" + jsonData[key]['topicApp'] + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['classRoom'] + "</td>";
-                                        t = t + "<td class='text-center'>" + jsonData[key]['titleNameTeacher'] + jsonData[key]['nameTeacher'] + " " + jsonData[key]['surnameTeacher'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
+                                        t = t + "<td class='text-center'>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
                                         t = t + "<td class='text-center'>" + jsonData[key]['startDateTimeApp'] + " - " + jsonData[key]['endDateTimeApp'] + "</td>";
                                         t = t + "<td class='text-center'>" + jsonData[key]['statusApp'] + "</td>";
                                         t = t + "<td>" + jsonData[key]['detailApp'] + "</td>"

@@ -37,7 +37,7 @@
                                         t = t + "<td class='text-center'>" + jsonData[key]['idSubject'] + "</td>";
                                         t = t + "<td class='text-center'>" + jsonData[key]['nameSubject'] + "</td>";
                                         t = t + "<td>" + jsonData[key]['titleName'] + jsonData[key]['name'] + " " + jsonData[key]['surname'] + "</td>";
-                                        t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php?subjectid=" + jsonData[key]['idSubject'] +"&userid="+ jsonData[key]['idUser']+ "' >รายละเอียด</a></button></td>";
+                                        t = t + "<td><button class='btn btn-default'><a href='../Student/Steachingschedule.php?subjectid=" + jsonData[key]['idSubject'] + "&userid=" + jsonData[key]['idUser'] + "&teachingid=" + jsonData[key]['idTeaching'] + "' >รายละเอียด</a></button></td>";
                                         t = t + "</tr>";
                                         i++;
                                         $("#tbodySubject").append(t);
