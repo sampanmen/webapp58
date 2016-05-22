@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">ตารางแสดงการสอน <button class="btn btn-circle glyphicon-plus" href="Smodal_addAppointment.php?subjectid=<?= $_GET['subjectid'] ?>&userid=<?= $_GET['userid'] ?>&teachingid=<?= $_GET['teachingid'] ?>" data-toggle="modal" data-target="#myModal"></button></h1>
+                <h1 class="page-header">ตารางแสดงการสอน </h1>
             </div>
             <div>
                 <!--                <div class="col-lg-12">  
@@ -22,6 +22,8 @@
                                         <p>ผศ.นุชนาฎ   สัตยากวี</p>                              
                                     </div>
                                 </div>-->
+                
+                
                 <table class="table table-striped table-bordered table-hover" id="dataTables-Appoin">
                     <thead>
                         <tr>
@@ -41,6 +43,7 @@
 
                     </tbody>
                 </table>
+                <div align='right'><button class="btn btn-info add" href="Smodal_addAppointment.php?subjectid=<?= $_GET['subjectid'] ?>&userid=<?= $_GET['userid'] ?>&teachingid=<?= $_GET['teachingid'] ?>" data-toggle="modal" data-target="#myModal"><a>เพิ่มการนัดหมาย</a></button></div>
                 <div class="col-lg-12">
                     <h1 class="page-header">การนัดหมายที่อนุมัติแล้ว </h1>
                 </div>
