@@ -51,7 +51,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                           
-                            <li><a href="/webapp58/control/control.logout.php"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
+                            <li><a href="/control/control.logout.php"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
                             </li>
                         </ul>
                     </li>
