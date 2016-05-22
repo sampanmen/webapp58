@@ -70,18 +70,12 @@ function getAppointmentByTeacher($idUserTeacher) {
  */
 function getConcludeAppointmentByStudent($idStudent) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT ap.*,ut.titleName as titleNameTeacher,ut.name nameTeacher,ut.surname surnameTeacher,"
-            . "us.titleName titleNameStudent,us.name nameStudent,us.surname surnameStudent  "
-            . "FROM teaching t  "
-            . "INNER JOIN class c on c.idClass =t.groupLearn "
-            . "INNER JOIN user us on us.idClass = c.idClass "
-            . "INNER JOIN appointment ap on ap.idUserStudent = us.idUser "
-            . "INNER JOIN user ut on ut.idUser = ap.idUserTeacher "
-            . "INNER JOIN term tm on tm.idTerm =t.idTerm "
+    $SQLCommand = "SELECT ap.*,s.nameSubject,ut.titleName,ut.name,ut.surname FROM appointment ap "
+            . "INNER JOIN teaching t on t.idTeaching = ap.idTeaching "
             . "INNER JOIN subject s on s.idSubject = t.idSubject "
-            . "WHERE ap.idUserStudent = :idStudent  "
-            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE "
-            . "group by ap.idAppointment";
+            . "INNER JOIN user ut ON ut.idUser = t.idUserTeacher "
+            . "where ap.idUserStudent=:idStudent "
+            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE ";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
     $SQLPrepare->execute(array(":idStudent" => $idStudent) );
@@ -93,26 +87,23 @@ function getConcludeAppointmentByStudent($idStudent) {
         return false;
     }
 }
-//echo '<pre>';
-//print_r(getConcludeAppointmentByStudent('777'));
-//echo '</pre>';
+
 /**
  * 
  * @param type $idTeacher -> str limit 10
  * @return false or result
  */
-function getConcludeAppointmentByTeacher($idTeacher) {
+function getConcludeAppointmentByTeacher($idUserTeacher) {
     $conn = dbconnect();
-    $SQLCommand = "SELECT ap.* ,ut.titleName as titleNameTeacher,ut.name nameTeacher,ut.surname surnameTeacher,"
-            . "us.titleName titleNameStudent,us.name nameStudent,us.surname surnameStudent "
-            . "FROM appointment ap "
-            . "INNER JOIN user us on us.idUser = ap.idUserStudent "
-            . "INNER JOIN user ut on ut.idUser =ap.idUserTeacher "
-            . "WHERE ap.idUserTeacher = :idTeacher  "
-            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE";
+    $SQLCommand = "SELECT ap.*,s.nameSubject,ut.titleName,ut.name,ut.surname FROM appointment ap "
+            . "INNER JOIN teaching t on t.idTeaching = ap.idTeaching "
+            . "INNER JOIN subject s on s.idSubject = t.idSubject "
+            . "INNER JOIN user ut ON ut.idUser = t.idUserTeacher "
+            . "where ap.idUserTeacher=:idUserTeacher "
+            . "and ap.startDateTimeApp >= CURRENT_DATE AND ap.endDateTimeApp>= CURRENT_DATE ";
 
     $SQLPrepare = $conn->prepare($SQLCommand);
-    $SQLPrepare->execute(array(":idTeacher" => $idTeacher) );
+    $SQLPrepare->execute(array(":idUserTeacher" => $idUserTeacher) );
 
     if ($SQLPrepare->rowCount() > 0) {
         $result = $SQLPrepare->fetchall(PDO::FETCH_ASSOC);
@@ -121,6 +112,7 @@ function getConcludeAppointmentByTeacher($idTeacher) {
         return false;
     }
 }
+
 /**
  * 
  * @param type $idAppointment -> int
